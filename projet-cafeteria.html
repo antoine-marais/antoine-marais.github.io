@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Cafeteria app (Flask) — Antoine Marais">Application cafétéria (Flask) — Antoine Marais</title>
+<meta name="description" content="Application web de commande pour la cafétéria de l'école : catalogue, panier avec code secret et back-office admin.">
+<link rel="canonical" href="https://antoine-marais.github.io/projet-cafeteria.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Application cafétéria (Flask) — Antoine Marais">
+<meta property="og:description" content="Application web de commande pour la cafétéria de l'école : catalogue, panier avec code secret et back-office admin.">
+<meta property="og:image" content="https://antoine-marais.github.io/assets/img/og.jpg">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f6f4f'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='14' font-weight='bold' fill='white' text-anchor='middle'%3EAM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,16..72,400;0,16..72,500;1,16..72,400&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main" data-en="Skip to content">Aller au contenu</a>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html">antoine-marais</a>
+  <button class="navtoggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Menu">☰</button>
+  <nav class="main" id="navLinks" aria-label="Navigation"><a href="index.html"><span data-en="Home">Accueil</span></a><a href="profil.html"><span data-en="Profile">Profil</span></a><a href="competences.html"><span data-en="Skills">Compétences</span></a><a href="epreuves.html"><span data-en="Exams">Épreuves</span></a><a href="realisations.html" aria-current="page"><span data-en="Projects">Réalisations</span></a><a href="contact.html"><span>Contact</span></a></nav>
+  <div class="tools"><a class="tool3d" href="immersive.html" data-en-title="3D version" title="Version 3D">3D</a><button id="langBtn" type="button" aria-label="Changer de langue / Switch language">EN</button><button id="themeBtn" type="button" aria-label="Thème clair/sombre">◐</button></div>
+</div></header>
+<main id="main">
+<div class="page-head"><div class="wrap"><div class="crumb"><a href="realisations.html"><span data-en="projects">réalisations</span></a> / cafeteria</div>
+  <span class="badge" data-en="E4 · Block 1">E4 · Bloc 1</span>
+  <h1 data-en="Cafeteria app (Flask)">Application cafétéria (Flask)</h1>
+  <p data-en="A complete web application letting students order at the school cafeteria, and giving staff a back office to manage orders and stock.">Une application web complète qui permet aux élèves de commander à la cafétéria de l'établissement, et donne au personnel un back-office pour gérer les commandes et les stocks.</p>
+  
+</div></div>
+<div class="wrap proj">
+  <article class="proj-main"><h2 data-en="Student side">Côté élève</h2><ul class="l"><li data-en="A product catalogue (sandwiches, salads, hot meals, pastries, desserts, drinks) served from the database, with two modes depending on the time of day.">Un catalogue de produits (sandwichs, salades, plats chauds, viennoiseries, desserts, boissons) servi depuis la base de données, avec deux modes selon l'heure.</li><li data-en="A cart and order placement secured by a personal secret code.">Un panier et une prise de commande sécurisée par un code secret personnel.</li><li data-en="Order tracking and cancellation, checked with name + secret code.">Le suivi et l'annulation des commandes, vérifiés par nom + code secret.</li></ul><h2 data-en="Admin back office">Back-office admin</h2><ul class="l"><li data-en="A password-protected admin panel to accept or refuse pending orders.">Un panneau d'administration protégé par mot de passe pour accepter ou refuser les commandes en attente.</li><li data-en="Real-time stock management, with automatic decrement on validation and restock on cancellation.">La gestion des stocks en temps réel, avec décrément automatique à la validation et réapprovisionnement à l'annulation.</li><li data-en="Adding and removing catalogue products.">L'ajout et la suppression de produits du catalogue.</li></ul><h2 data-en="Technical architecture">Architecture technique</h2><p data-en="The back end relies on Python and Flask, with a SQLite database (products and orders tables). The interface talks to the server through JSON routes (order, cancel, my orders).">Le back-end repose sur Python et Flask, avec une base de données SQLite (tables produits et commandes). L'interface échange avec le serveur via des routes JSON (commander, annuler, mes commandes).</p><h2 data-en="What I learned">Ce que j'ai appris</h2><p data-en="End-to-end development practice: data modelling, server-side logic, a simple security mechanism (secret code) and a clear separation between the student side and the administration.">Pratiquer le développement de bout en bout : modélisation des données, logique côté serveur, un mécanisme de sécurité simple (code secret) et une séparation claire entre la partie élève et l'administration.</p><h2 data-en="Screenshots">Captures d'écran</h2><div class="gallery"><figure class='fig'><div class="ph"><span data-en="Screenshot to add">Capture à ajouter</span></div><figcaption data-en-html="The order page with the product catalogue and cart.">La page de commande avec le catalogue de produits et le panier.</figcaption></figure><figure class='fig'><div class="ph"><span data-en="Screenshot to add">Capture à ajouter</span></div><figcaption data-en-html="The admin back office: pending orders and stock management.">Le back-office admin : commandes en attente et gestion des stocks.</figcaption></figure></div></article>
+  <aside class="side">
+    <div class="box"><div class="lab"><span data-en="Project sheet">Fiche projet</span></div><div class="row"><span><span>type</span></span><b><span data-en="Web application">Application web</span></b></div><div class="row"><span><span data-en="language">langage</span></span><b>Python · Flask</b></div><div class="row"><span><span data-en="database">base</span></span><b>SQLite</b></div><div class="row"><span><span data-en="status">statut</span></span><b><span data-en="Completed">Terminé</span></b></div></div>
+    <div class="box"><div class="lab">Technologies</div><div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">SQLite</span><span class="tag">Jinja</span><span class="tag">HTML/CSS</span><span class="tag">JavaScript</span></div></div>
+    <div class="box"><div class="lab"><span data-en="Skills covered — Block 1">Compétences couvertes — Bloc 1</span></div><ul><li><span data-en="Develop the organisation's online presence">Développer la présence en ligne de l'organisation</span></li><li><span data-en="Work in project mode">Travailler en mode projet</span></li><li><span data-en="Provide users with an IT service">Mettre à disposition des utilisateurs un service informatique</span></li></ul></div>
+    
+    <a class="btn ghost" href="realisations.html"><span data-en="← Back to projects">← Retour aux réalisations</span></a>
+  </aside>
+</div>
+</main>
+<footer><div class="wrap"><span>© <span id="year">2026</span> Antoine Marais — BTS SIO · SISR</span><span data-en="Static site · HTML / CSS / JS">Site statique · HTML / CSS / JS</span></div></footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

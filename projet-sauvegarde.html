@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Automated 3-2-1 backup — Antoine Marais">Sauvegarde automatisée 3-2-1 — Antoine Marais</title>
+<meta name="description" content="Chaîne de sauvegarde résiliente : Bash + rsync, cron, NAS et cloud (Backblaze B2), avec alertes mail GLPI.">
+<link rel="canonical" href="https://antoine-marais.github.io/projet-sauvegarde.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sauvegarde automatisée 3-2-1 — Antoine Marais">
+<meta property="og:description" content="Chaîne de sauvegarde résiliente : Bash + rsync, cron, NAS et cloud (Backblaze B2), avec alertes mail GLPI.">
+<meta property="og:image" content="https://antoine-marais.github.io/assets/img/og.jpg">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f6f4f'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='14' font-weight='bold' fill='white' text-anchor='middle'%3EAM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,16..72,400;0,16..72,500;1,16..72,400&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main" data-en="Skip to content">Aller au contenu</a>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html">antoine-marais</a>
+  <button class="navtoggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Menu">☰</button>
+  <nav class="main" id="navLinks" aria-label="Navigation"><a href="index.html"><span data-en="Home">Accueil</span></a><a href="profil.html"><span data-en="Profile">Profil</span></a><a href="competences.html"><span data-en="Skills">Compétences</span></a><a href="epreuves.html"><span data-en="Exams">Épreuves</span></a><a href="realisations.html" aria-current="page"><span data-en="Projects">Réalisations</span></a><a href="contact.html"><span>Contact</span></a></nav>
+  <div class="tools"><a class="tool3d" href="immersive.html" data-en-title="3D version" title="Version 3D">3D</a><button id="langBtn" type="button" aria-label="Changer de langue / Switch language">EN</button><button id="themeBtn" type="button" aria-label="Thème clair/sombre">◐</button></div>
+</div></header>
+<main id="main">
+<div class="page-head"><div class="wrap"><div class="crumb"><a href="realisations.html"><span data-en="projects">réalisations</span></a> / sauvegarde</div>
+  <span class="badge" data-en="E5 · Block 2">E5 · Bloc 2</span>
+  <h1 data-en="Automated 3-2-1 backup">Sauvegarde automatisée 3-2-1</h1>
+  <p data-en="A resilient backup strategy following the 3-2-1 rule, designed during my internship: automated with a Bash script, scheduled with cron and replicated to a NAS and to the cloud.">Une stratégie de sauvegarde résiliente selon la règle 3-2-1, conçue pendant mon stage : automatisée par un script Bash, planifiée avec cron, et répliquée sur un NAS et dans le cloud.</p>
+  <div class="metrics"><div class="metric"><b>3-2-1</b><span data-en="rule applied">règle appliquée</span></div><div class="metric"><b>2 h</b><span data-en="auto frequency">fréquence auto</span></div></div>
+</div></div>
+<div class="wrap proj">
+  <article class="proj-main"><h2 data-en="Goal">Objectif</h2><p data-en="Ensure the longevity of critical data by applying the 3-2-1 rule: three copies of the data, on two different media, one of them off-site (in the cloud). The whole chain runs automatically, with no manual intervention.">Garantir la pérennité des données critiques en appliquant la règle 3-2-1 : trois copies des données, sur deux supports différents, dont une copie hors site (dans le cloud). Toute la chaîne s'exécute automatiquement, sans intervention manuelle.</p><h2 data-en="How it works">Fonctionnement</h2><ul class="l"><li data-en-html="A Bash script uses <code>rsync --link-dest</code> to create space-efficient incremental snapshots (unchanged files are hard-linked).">Un script Bash utilise <code>rsync --link-dest</code> pour créer des snapshots incrémentaux économes en espace (les fichiers inchangés sont liés en dur).</li><li data-en-html="A <code>cron</code> job triggers the backup every 2 hours.">Une tâche <code>cron</code> déclenche la sauvegarde toutes les 2 heures.</li><li data-en="Copies are replicated to a local NAS and to Backblaze B2 cloud (off-site copy).">Les copies sont répliquées sur un NAS local et dans le cloud Backblaze B2 (copie hors site).</li><li data-en="A GLPI mail alert reports the status of every run.">Une alerte mail via GLPI remonte le statut de chaque exécution.</li></ul><pre><code><span class="cm">#!/bin/bash</span>
+<span class="cm"># Sauvegarde incrémentale 3-2-1</span>
+rsync -a --delete --link-dest="$LAST" "$SRC" "$DEST/$(date +%F_%H%M)"
+<span class="cm"># Réplication cloud</span>
+rclone sync "$DEST" b2:antoine-backups
+<span class="cm"># Planification (crontab) : toutes les 2 h</span>
+<span class="cm"># 0 */2 * * * /opt/scripts/backup.sh</span></code></pre><h2 data-en="Screenshots">Captures d'écran</h2><div class="gallery"><figure class='fig'><div class="ph"><span data-en="Screenshot to add">Capture à ajouter</span></div><figcaption data-en-html="A successful <code>rsync</code> run (transfer summary) and the crontab entry.">Une exécution <code>rsync</code> réussie (récapitulatif du transfert) et la ligne crontab.</figcaption></figure><figure class='fig'><div class="ph"><span data-en="Screenshot to add">Capture à ajouter</span></div><figcaption data-en-html="The GLPI mail alert confirming the backup, or the copy on Backblaze B2.">L'alerte mail GLPI confirmant la sauvegarde, ou la copie sur Backblaze B2.</figcaption></figure></div></article>
+  <aside class="side">
+    <div class="box"><div class="lab"><span data-en="Project sheet">Fiche projet</span></div><div class="row"><span><span data-en="framework">référentiel</span></span><b><span data-en="E5 · Block 2">E5 · Bloc 2</span></b></div><div class="row"><span><span data-en="context">contexte</span></span><b><span data-en="Internship">Stage</span></b></div><div class="row"><span><span data-en="rule">règle</span></span><b>3-2-1</b></div></div>
+    <div class="box"><div class="lab">Technologies</div><div class="tags"><span class="tag">Bash</span><span class="tag">rsync</span><span class="tag">cron</span><span class="tag">NAS</span><span class="tag">Backblaze B2</span><span class="tag">GLPI</span></div></div>
+    <div class="box"><div class="lab"><span data-en="Skills covered — Blocks 2 &amp; 3">Compétences couvertes — Blocs 2 &amp; 3</span></div><ul><li><span data-en="Automate administration tasks (scripting)">Automatiser des tâches d'administration (scripting)</span></li><li><span data-en="Ensure data availability and continuity">Garantir la disponibilité et la continuité des données</span></li><li><span data-en="Protect the organisation's data">Protéger les données de l'organisation</span></li></ul></div>
+    
+    <a class="btn ghost" href="realisations.html"><span data-en="← Back to projects">← Retour aux réalisations</span></a>
+  </aside>
+</div>
+</main>
+<footer><div class="wrap"><span>© <span id="year">2026</span> Antoine Marais — BTS SIO · SISR</span><span data-en="Static site · HTML / CSS / JS">Site statique · HTML / CSS / JS</span></div></footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

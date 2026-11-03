@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="VLAN segmentation and DMZ — Antoine Marais">Segmentation VLAN et DMZ — Antoine Marais</title>
+<meta name="description" content="Segmentation du réseau en VLAN et zone démilitarisée pour isoler les services exposés. Projet en cours.">
+<link rel="canonical" href="https://antoine-marais.github.io/projet-vlan-dmz.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Segmentation VLAN et DMZ — Antoine Marais">
+<meta property="og:description" content="Segmentation du réseau en VLAN et zone démilitarisée pour isoler les services exposés. Projet en cours.">
+<meta property="og:image" content="https://antoine-marais.github.io/assets/img/og.jpg">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f6f4f'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='14' font-weight='bold' fill='white' text-anchor='middle'%3EAM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,16..72,400;0,16..72,500;1,16..72,400&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main" data-en="Skip to content">Aller au contenu</a>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html">antoine-marais</a>
+  <button class="navtoggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Menu">☰</button>
+  <nav class="main" id="navLinks" aria-label="Navigation"><a href="index.html"><span data-en="Home">Accueil</span></a><a href="profil.html"><span data-en="Profile">Profil</span></a><a href="competences.html"><span data-en="Skills">Compétences</span></a><a href="epreuves.html"><span data-en="Exams">Épreuves</span></a><a href="realisations.html" aria-current="page"><span data-en="Projects">Réalisations</span></a><a href="contact.html"><span>Contact</span></a></nav>
+  <div class="tools"><a class="tool3d" href="immersive.html" data-en-title="3D version" title="Version 3D">3D</a><button id="langBtn" type="button" aria-label="Changer de langue / Switch language">EN</button><button id="themeBtn" type="button" aria-label="Thème clair/sombre">◐</button></div>
+</div></header>
+<main id="main">
+<div class="page-head"><div class="wrap"><div class="crumb"><a href="realisations.html"><span data-en="projects">réalisations</span></a> / vlan-dmz</div>
+  <span class="badge wip" data-en="In progress">En cours</span>
+  <h1 data-en="VLAN segmentation and DMZ">Segmentation VLAN et DMZ</h1>
+  <p data-en="Isolating exposed services from the trusted network and proving it with tests.">Isoler les services exposés du réseau de confiance et le démontrer par des tests.</p>
+  
+</div></div>
+<div class="wrap proj">
+  <article class="proj-main"><h2>Description</h2><p data-en="Logical split of the network into VLANs (servers, workstations, administration, Wi-Fi, management) with filtered inter-VLAN routing. A DMZ hosts an isolated web server: reachable from the internal network, but unable to initiate connections to the trusted network.">Découpage logique du réseau en VLAN (serveurs, postes, administration, Wi-Fi, gestion) avec routage inter-VLAN filtré. Mise en place d'une DMZ hébergeant un serveur web isolé : accessible depuis l'interne, mais incapable d'initier une connexion vers le réseau de confiance.</p><h2 data-en="Demonstration">Démonstration</h2><p data-en="Isolation is shown through two opposite tests: internal → DMZ access allowed, DMZ → internal access blocked.">L'isolation est démontrée par deux tests opposés : accès interne → DMZ autorisé, accès DMZ → interne bloqué.</p><p class="note" data-en="Work in progress: this page will be completed once the project is finished.">Projet en cours : la page sera complétée à la fin des travaux.</p><h2 data-en="Screenshots">Captures d'écran</h2><div class="gallery"><figure class='fig'><div class="ph"><span data-en="Screenshot to add">Capture à ajouter</span></div><figcaption data-en-html="Zone diagram.">Schéma des zones.</figcaption></figure><figure class='fig'><div class="ph"><span data-en="Screenshot to add">Capture à ajouter</span></div><figcaption data-en-html="Internal → DMZ access test succeeded.">Test d'accès interne → DMZ réussi.</figcaption></figure><figure class='fig'><div class="ph"><span data-en="Screenshot to add">Capture à ajouter</span></div><figcaption data-en-html="DMZ → internal test blocked.">Test DMZ → interne bloqué.</figcaption></figure></div></article>
+  <aside class="side">
+    <div class="box"><div class="lab"><span data-en="Project sheet">Fiche projet</span></div><div class="row"><span><span data-en="context">contexte</span></span><b><span data-en="School project">Projet d'école</span></b></div><div class="row"><span><span data-en="status">statut</span></span><b><span data-en="In progress">En cours</span></b></div></div>
+    <div class="box"><div class="lab">Technologies</div><div class="tags"><span class="tag">VLAN 802.1Q</span><span class="tag">DMZ</span><span class="tag">nginx</span><span class="tag"><span data-en="FortiGate policies">Politiques FortiGate</span></span></div></div>
+    <div class="box"><div class="lab"><span data-en="SISR skills">Compétences SISR</span></div><ul><li><span data-en="Segment and compartmentalise">Segmenter et cloisonner</span></li><li><span data-en="Design a perimeter security policy">Concevoir une politique de sécurité périmétrique</span></li></ul></div>
+    
+    <a class="btn ghost" href="realisations.html"><span data-en="← Back to projects">← Retour aux réalisations</span></a>
+  </aside>
+</div>
+</main>
+<footer><div class="wrap"><span>© <span id="year">2026</span> Antoine Marais — BTS SIO · SISR</span><span data-en="Static site · HTML / CSS / JS">Site statique · HTML / CSS / JS</span></div></footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

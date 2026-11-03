@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Recovering 12 lost virtual machines on Proxmox — Antoine Marais">Récupération de 12 VM disparues sur Proxmox — Antoine Marais</title>
+<meta name="description" content="Incident critique : 12 VM disparues après une réinstallation sur le mauvais disque — toutes récupérées, sans perte de données.">
+<link rel="canonical" href="https://antoine-marais.github.io/projet-proxmox.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Récupération de 12 VM disparues sur Proxmox — Antoine Marais">
+<meta property="og:description" content="Incident critique : 12 VM disparues après une réinstallation sur le mauvais disque — toutes récupérées, sans perte de données.">
+<meta property="og:image" content="https://antoine-marais.github.io/assets/img/og.jpg">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f6f4f'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='14' font-weight='bold' fill='white' text-anchor='middle'%3EAM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,16..72,400;0,16..72,500;1,16..72,400&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main" data-en="Skip to content">Aller au contenu</a>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html">antoine-marais</a>
+  <button class="navtoggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Menu">☰</button>
+  <nav class="main" id="navLinks" aria-label="Navigation"><a href="index.html"><span data-en="Home">Accueil</span></a><a href="profil.html"><span data-en="Profile">Profil</span></a><a href="competences.html"><span data-en="Skills">Compétences</span></a><a href="epreuves.html"><span data-en="Exams">Épreuves</span></a><a href="realisations.html" aria-current="page"><span data-en="Projects">Réalisations</span></a><a href="contact.html"><span>Contact</span></a></nav>
+  <div class="tools"><a class="tool3d" href="immersive.html" data-en-title="3D version" title="Version 3D">3D</a><button id="langBtn" type="button" aria-label="Changer de langue / Switch language">EN</button><button id="themeBtn" type="button" aria-label="Thème clair/sombre">◐</button></div>
+</div></header>
+<main id="main">
+<div class="page-head"><div class="wrap"><div class="crumb"><a href="realisations.html"><span data-en="projects">réalisations</span></a> / proxmox</div>
+  <span class="badge" data-en="E5 · Block 2">E5 · Bloc 2</span>
+  <h1 data-en="Recovering 12 lost virtual machines on Proxmox">Récupération de 12 VM disparues sur Proxmox</h1>
+  <p data-en="A critical-incident case study: 12 students' virtual machines vanished after a Proxmox reinstallation landed on the wrong disk. I recovered them all — with no data loss.">Une situation d'incident critique : 12 machines virtuelles d'étudiants disparues après une réinstallation de Proxmox sur le mauvais disque. Je les ai toutes récupérées — sans aucune perte de données.</p>
+  <div class="metrics"><div class="metric"><b>12</b><span data-en="VMs recovered">VM récupérées</span></div><div class="metric"><b>0</b><span data-en="data loss">perte de données</span></div></div>
+</div></div>
+<div class="wrap proj">
+  <article class="proj-main"><h2 data-en="The incident">L'incident</h2><p data-en="After a Proxmox VE reinstallation was performed on the wrong disk, 12 student virtual machines seemed to have disappeared. Losing them would have meant losing weeks of student work — the pressure was real.">Après qu'une réinstallation de Proxmox VE a été réalisée sur le mauvais disque, 12 machines virtuelles d'étudiants semblaient avoir disparu. Les perdre signifiait perdre des semaines de travail — la pression était réelle.</p><h2 data-en="Diagnosis">Diagnostic</h2><ul class="l"><li data-en-html="Inspected the disks with <code>lsblk</code> and found the original data still present on a separate disk.">Inspection des disques avec <code>lsblk</code> : les données d'origine étaient toujours présentes sur un disque distinct.</li><li data-en-html="Located the old LVM volume group (<code>pve-OLD-...</code>) that still held the virtual disks.">Localisation de l'ancien groupe LVM (<code>pve-OLD-...</code>) qui contenait encore les disques virtuels.</li><li data-en-html="Read the Proxmox SQLite configuration database (<code>config.db</code>) to recover the VM definitions.">Lecture de la base de configuration SQLite de Proxmox (<code>config.db</code>) pour retrouver les définitions des VM.</li></ul><h2 data-en="Recovery">Remise en service</h2><ul class="l"><li data-en-html="Re-injected each VM's <code>.conf</code> files and re-created the storage pools pointing to the recovered LVM group.">Réinjection des fichiers <code>.conf</code> de chaque VM et recréation des pools de stockage pointant vers le groupe LVM récupéré.</li><li data-en-html="Rebuilt the network with the right bridges (<code>vmbr1/2/3</code>), using <code>ethtool -p</code> to physically identify the interfaces.">Reconstruction du réseau avec les bons bridges (<code>vmbr1/2/3</code>), en identifiant physiquement les interfaces avec <code>ethtool -p</code>.</li><li data-en="Verified every VM boots and reaches the network — all 12 back online.">Vérification du démarrage et de l'accès réseau de chaque VM — les 12 de nouveau en ligne.</li></ul><h2 data-en="Screenshots">Captures d'écran</h2><div class="gallery"><figure class='fig'><div class="ph"><span data-en="Screenshot to add">Capture à ajouter</span></div><figcaption data-en-html="Output of <code>lsblk</code> showing the two disks and the recovered LVM group.">Sortie de <code>lsblk</code> montrant les deux disques et le groupe LVM récupéré.</figcaption></figure><figure class='fig'><div class="ph"><span data-en="Screenshot to add">Capture à ajouter</span></div><figcaption data-en-html="The Proxmox interface with the 12 virtual machines back online.">L'interface Proxmox avec les 12 machines virtuelles de nouveau en ligne.</figcaption></figure></div></article>
+  <aside class="side">
+    <div class="box"><div class="lab"><span data-en="Project sheet">Fiche projet</span></div><div class="row"><span><span data-en="framework">référentiel</span></span><b><span data-en="E5 · Block 2">E5 · Bloc 2</span></b></div><div class="row"><span><span>type</span></span><b><span data-en="Critical incident">Incident critique</span></b></div><div class="row"><span><span data-en="result">résultat</span></span><b><span data-en="12/12 recovered">12/12 récupérées</span></b></div></div>
+    <div class="box"><div class="lab">Technologies</div><div class="tags"><span class="tag">Proxmox VE</span><span class="tag">LVM</span><span class="tag">lsblk</span><span class="tag">SQLite</span><span class="tag">Linux bridges</span><span class="tag">ethtool</span></div></div>
+    <div class="box"><div class="lab"><span data-en="Skills covered — Block 2">Compétences couvertes — Bloc 2</span></div><ul><li><span data-en="Operate, troubleshoot and supervise an infrastructure">Exploiter, dépanner et superviser une infrastructure</span></li><li><span data-en="Ensure service continuity">Assurer la continuité de service</span></li><li><span data-en="Manage virtualisation">Gérer la virtualisation</span></li></ul></div>
+    
+    <a class="btn ghost" href="realisations.html"><span data-en="← Back to projects">← Retour aux réalisations</span></a>
+  </aside>
+</div>
+</main>
+<footer><div class="wrap"><span>© <span id="year">2026</span> Antoine Marais — BTS SIO · SISR</span><span data-en="Static site · HTML / CSS / JS">Site statique · HTML / CSS / JS</span></div></footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
