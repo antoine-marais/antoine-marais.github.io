@@ -46,3 +46,28 @@
 
   var y=document.getElementById("year"); if(y) y.textContent=new Date().getFullYear();
 })();
+
+/* Modernisation V2.1 : progression de lecture + apparition douce. Sans JS, le site reste complet. */
+(function(){
+  "use strict";
+  var root=document.documentElement;
+  var calm=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // barre de progression
+  var bar=document.createElement("div");bar.className="progress";bar.setAttribute("aria-hidden","true");
+  var fill=document.createElement("i");bar.appendChild(fill);document.body.appendChild(bar);
+  var tick=false;
+  function upd(){tick=false;var h=root.scrollHeight-innerHeight;fill.style.transform="scaleX("+(h>0?Math.min(1,Math.max(0,scrollY/h)):0)+")";}
+  addEventListener("scroll",function(){if(!tick){tick=true;requestAnimationFrame(upd);}},{passive:true});upd();
+  // apparition au scroll
+  if(calm||!("IntersectionObserver" in window))return;
+  var els=[].slice.call(document.querySelectorAll(".card,.bx,.sec-head,.man,.tl li,.metric,.box,.clink,.table-wrap,.fig"));
+  if(!els.length)return;
+  root.classList.add("js");
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.08,rootMargin:"0px 0px -4% 0px"});
+  els.forEach(function(el){
+    var sib=el.parentElement?[].indexOf.call(el.parentElement.children,el):0;
+    el.style.setProperty("--i",Math.min(sib,6));el.classList.add("rv");io.observe(el);
+  });
+  // sécurité : tout ce qui est déjà visible au chargement s'affiche
+  setTimeout(function(){els.forEach(function(el){if(!el.classList.contains("in")){var r=el.getBoundingClientRect();if(r.top<innerHeight){el.classList.add("in");}}});},120);
+})();

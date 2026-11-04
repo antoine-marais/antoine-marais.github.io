@@ -15,7 +15,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f6f4f'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='14' font-weight='bold' fill='white' text-anchor='middle'%3EAM%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,16..72,400;0,16..72,500;1,16..72,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -27,22 +27,23 @@
   <div class="tools"><a class="tool3d" href="immersive.html" data-en-title="3D version" title="Version 3D">3D</a><button id="langBtn" type="button" aria-label="Changer de langue / Switch language">EN</button><button id="themeBtn" type="button" aria-label="Thème clair/sombre">◐</button></div>
 </div></header>
 <main id="main">
-<section class="hero"><div class="wrap hero-grid">
-  <div>
+<section class="hero"><div class="wrap">
+  <div class="hero-grid"><div>
     <span class="chip" data-en="Work-study · BTS SIO SISR">En alternance · BTS SIO SISR</span>
     <h1>Antoine Marais<span class="role" data-en="Systems &amp; network administrator in training">Administrateur systèmes &amp; réseaux en formation</span></h1>
     <p class="lede" data-en="Work-study student in BTS SIO (SISR option) in Rennes. I design, secure and document systems and network infrastructures — from architecture to supervision.">Alternant en BTS SIO option SISR à Rennes. Je conçois, sécurise et documente des infrastructures systèmes et réseaux, de la conception jusqu'à la supervision.</p>
-    <div class="btns"><a class="btn" href="realisations.html"><span data-en="View my projects">Voir mes réalisations</span></a></div>
-  </div>
-  <div class="man" aria-label="PROFIL(1)">
-    <div class="man-h"><span>PROFIL(1)</span><span>SISR</span></div>
-    <dl>
-      <div><dt><span data-en="education">formation</span></dt><dd>BTS SIO — SISR</dd></div>
-      <div><dt><span data-en="school">école</span></dt><dd>ESUP · Rennes</dd></div>
-      <div><dt><span data-en="work-study">alternance</span></dt><dd>Dirickx Groupe Picot</dd></div>
-      <div><dt><span data-en="schedule">rythme</span></dt><dd><span data-en="3d company / 2d school">3 j entreprise / 2 j école</span></dd></div>
-      <div><dt><span data-en="languages">langues</span></dt><dd>FR · EN (B1)</dd></div>
-    </dl>
+    <div class="btns"><a class="btn" href="realisations.html"><span data-en="View my projects">Voir mes réalisations</span></a><a class="btn ghost" href="contact.html">Contact</a></div>
+  </div></div>
+  <div class="bento">
+    <article class="bx bx-about"><img src="assets/img/photo.jpg" alt="" loading="lazy"><span class="k"><span data-en="about">à propos</span></span>
+      <p data-en="Theory serving practice: from Labtainers labs to complex network architectures, I try to understand an infrastructure as a whole.">La théorie au service de la pratique : des laboratoires Labtainers aux architectures réseau complexes, je cherche à comprendre une infrastructure dans son ensemble.</p></article>
+    <article class="bx"><span class="k"><span data-en="education">formation</span></span><div><b class="v">BTS SIO SISR</b><p class="s">ESUP · Rennes · 2025 — 2027</p></div></article>
+    <article class="bx"><span class="k"><span data-en="work-study">alternance</span></span><div><b class="v">Dirickx</b><p class="s">Groupe Picot · <span data-en="3d company / 2d school">3 j entreprise / 2 j école</span></p></div></article>
+    <article class="bx bx-num"><span class="k"><span data-en="documented projects">projets documentés</span></span><div><b class="v">9</b><p class="s">E4 · E5 · E6</p></div></article>
+    <article class="bx bx-num"><span class="k"><span data-en="exam session">session d'examen</span></span><div><b class="v">2027</b><p class="s">BTS SIO · SISR</p></div></article>
+    <article class="bx bx-stack"><span class="k">stack</span><ul class="chips"><li>FortiGate</li><li>VLAN</li><li>Active Directory</li><li>Windows Server 2025</li><li>Proxmox VE</li><li>Debian</li><li>Tailscale</li><li>rsync</li><li>Flask</li></ul></article>
+    <article class="bx"><span class="k"><span data-en="languages">langues</span></span><div><b class="v">FR · EN</b><p class="s"><span data-en="English level B1">Anglais niveau B1</span></p></div></article>
+    <a class="bx bx-link" href="https://www.linkedin.com/in/antoine-marais/" target="_blank" rel="noopener"><span class="k">contact</span><div><b class="v">LinkedIn</b><span class="go">→</span></div></a>
   </div>
 </div></section>
 <section class="sec"><div class="wrap">
@@ -51,7 +52,7 @@
 </div></section>
 <section class="sec"><div class="wrap">
   <div class="sec-head"><span class="eyebrow" data-en="Selected work">Sélection</span><h2 data-en="Featured projects">Projets à la une</h2></div>
-  <div class="grid"><a class="card" href="projet-cyber.html" data-tags="E6">
+  <div class="grid feat"><a class="card" href="projet-cyber.html" data-tags="E6">
   <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="badge" data-en="E6 · Block 3">E6 · Bloc 3</span></div>
   <h3 data-en="Cybersecurity: segmentation and hardening">Cybersécurité : cloisonnement et durcissement</h3>
   <p data-en="From an unsegmented network to a defence-in-depth infrastructure: zones, bastion, hardening and traceability of denials.">D'un réseau sans cloisonnement à une infrastructure défendue en profondeur : zones, bastion, durcissement et traçabilité des refus.</p>
@@ -62,12 +63,6 @@
   <h3 data-en="Security overhaul: FortiGate firewall HA cluster">Refonte sécurité : pare-feu FortiGate en cluster HA</h3>
   <p data-en="Routers replaced by a two-node FortiGate high-availability cluster, now the security core of the infrastructure.">Remplacement des routeurs par un cluster de deux FortiGate en haute disponibilité, devenu le cœur sécurité de l'infrastructure.</p>
   <ul class="chips"><li>FortiGate 81E</li><li>FortiOS 7.0</li><li>Cluster HA (FGCP)</li><li>Zones</li><li><span data-en="Firewall policies">Politiques de pare-feu</span></li></ul>
-  <span class="more" data-en="View project →">Voir le projet →</span>
-</a><a class="card" href="projet-windows-server-2025.html" data-tags="E5">
-  <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="badge" data-en="E5 · Block 2">E5 · Bloc 2</span></div>
-  <h3 data-en="Windows Server 2025 infrastructure services">Services d'infrastructure Windows Server 2025</h3>
-  <p data-en="Active Directory domain controller with centralised DNS and DHCP for an enterprise domain.">Contrôleur de domaine Active Directory avec DNS et DHCP centralisés pour un domaine d'entreprise.</p>
-  <ul class="chips"><li>Windows Server 2025</li><li>AD DS</li><li>DNS</li><li>DHCP</li><li><span data-en="DHCP relay">Relais DHCP</span></li></ul>
   <span class="more" data-en="View project →">Voir le projet →</span>
 </a><a class="card" href="projet-proxmox.html" data-tags="E5">
   <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="badge" data-en="E5 · Block 2">E5 · Bloc 2</span></div>
