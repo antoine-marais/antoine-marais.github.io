@@ -3,90 +3,245 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title data-en="Antoine Marais — BTS SIO SISR Portfolio">Antoine Marais — Portfolio BTS SIO SISR</title>
-<meta name="description" content="Portfolio d'Antoine Marais — alternant en BTS SIO option SISR à Rennes. Administration systèmes &amp; réseaux, infrastructure et cybersécurité.">
-<link rel="canonical" href="https://antoine-marais.github.io/index.html">
+<title>Antoine Marais — Portfolio 3D</title>
+<meta name="description" content="Portfolio d'Antoine Marais (BTS SIO SISR) : profil, parcours, compétences et projets, à traverser en 3D en scrollant.">
+<link rel="canonical" href="https://antoine-marais.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Antoine Marais — Portfolio BTS SIO SISR">
-<meta property="og:description" content="Portfolio d'Antoine Marais — alternant en BTS SIO option SISR à Rennes. Administration systèmes &amp; réseaux, infrastructure et cybersécurité.">
+<meta property="og:description" content="Portfolio 3D d'Antoine Marais : administration systèmes et réseaux, cybersécurité.">
 <meta property="og:image" content="https://antoine-marais.github.io/assets/img/og.jpg">
-<meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f6f4f'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='14' font-weight='bold' fill='white' text-anchor='middle'%3EAM%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="assets/css/style.css">
+<style>
+:root{--ground:#07080c;--surface:#191b12;--ink:#e8e8db;--ink-soft:#c8c9ba;--muted:#a0a290;--line:#2a2c20;--line-strong:#3b3d2e;--accent:#5cc2cf;--accent-ink:#9bd9e0;--c:var(--accent);--mono:"Geist Mono",ui-monospace,Menlo,Consolas,monospace;--serif:"Geist",ui-sans-serif,system-ui,sans-serif;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font:16px/1.65 var(--serif)}
+#gl{position:fixed;inset:0;width:100%;height:100%;display:block;z-index:0}
+.vig{position:fixed;inset:0;pointer-events:none;z-index:1;background:radial-gradient(ellipse at 62% 50%,transparent 42%,rgba(3,4,8,.65))}
+.top{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;align-items:center;gap:10px;padding:14px max(16px,env(safe-area-inset-left));background:linear-gradient(var(--ground),transparent)}
+.top .brand{font-weight:700;color:var(--ink);text-decoration:none;margin-right:auto;letter-spacing:-.01em}
+.top .brand{font-family:var(--mono)}.top .brand::before{content:"AM";display:inline-grid;place-items:center;width:28px;height:28px;border-radius:8px;background:var(--ink);color:var(--ground);font:600 .7rem var(--mono);margin-right:10px;vertical-align:middle}
+.top a.pill,.top button{color:var(--ink);background:rgba(14,16,23,.8);border:1px solid var(--line-strong);border-radius:99px;padding:7px 13px;font:500 .76rem var(--mono);text-decoration:none;cursor:pointer;backdrop-filter:blur(8px)}
+.top a.pill:hover,.top button:hover{border-color:var(--accent);color:var(--accent)}
+.dots{position:fixed;right:12px;top:50%;transform:translateY(-50%);z-index:5;display:flex;flex-direction:column;gap:8px}
+.dots a{width:8px;height:8px;border-radius:50%;background:var(--line-strong);display:block;transition:.3s}
+.dots a.on{background:var(--accent);transform:scale(1.5)}
+main{position:relative;z-index:2}
+section{min-height:100vh;display:flex;align-items:center;padding:90px 20px 60px 6vw}
+.panel{width:100%;max-width:470px;background:rgba(14,16,23,.82);border:1px solid var(--line-strong);border-top:2px solid var(--c);border-radius:18px;padding:24px 26px;backdrop-filter:blur(14px);opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+section.in .panel{opacity:1;transform:none}
+.tag{display:block;font:500 .72rem var(--mono);color:var(--c);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
+.tag::before{content:"";display:inline-block;width:16px;height:2px;background:var(--c);margin-right:9px;vertical-align:middle}
+h1,h2{font:650 1.55rem/1.15 var(--serif);letter-spacing:-.03em;margin:0 0 .6em}
+h1{font-size:clamp(2.3rem,7vw,3.4rem);line-height:1.02;letter-spacing:-.045em;color:var(--ink)}
+
+p{margin:.5em 0;color:var(--ink-soft);font:400 1.05rem/1.6 var(--serif)}
+ul.b{list-style:none;margin:.7em 0 0;padding:0;color:var(--muted);font-size:.84rem}
+ul.b li{margin:.4em 0;padding-left:1.1em;position:relative}
+ul.b li::before{content:"›";position:absolute;left:0;color:var(--accent)}
+ul.t{list-style:none;padding:0;margin:.9em 0 0;display:flex;flex-wrap:wrap;gap:6px}
+ul.t li{font:500 .72rem var(--mono);padding:4px 10px;border:1px solid var(--line-strong);border-radius:99px;color:var(--ink-soft)}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.btns a{padding:10px 18px;border:1px solid var(--line-strong);color:var(--ink);text-decoration:none;font:600 .86rem var(--serif);border-radius:99px}
+.btns a:hover{border-color:var(--accent);color:var(--accent)}
+.btns a.p{background:var(--accent);border-color:var(--accent);color:#04161a;font-weight:700}
+.btns a.p:hover{color:#0e1a13;filter:brightness(1.08)}
+.hint{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:5;font:.74rem var(--mono);color:var(--muted);transition:opacity .4s;pointer-events:none}
+.hint.off{opacity:0}
+.nogl #gl,.nogl .dots,.nogl .hint,.nogl .vig{display:none}
+.nogl section{min-height:0;padding:28px 20px}
+.nogl .panel{opacity:1;transform:none;margin:0 auto;max-width:660px}
+@media (max-width:800px){section{align-items:flex-end;padding:90px 14px 40px}.panel{max-width:none}.dots{right:5px}}
+@media (prefers-reduced-motion:reduce){.panel{transition:none}html{scroll-behavior:auto}}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+</style>
 </head>
 <body>
-<a class="skip" href="#main" data-en="Skip to content">Aller au contenu</a>
-<header class="topbar"><div class="wrap">
-  <a class="brand" href="index.html">antoine-marais</a>
-  <button class="navtoggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Menu">☰</button>
-  <nav class="main" id="navLinks" aria-label="Navigation"><a href="index.html" aria-current="page"><span data-en="Home">Accueil</span></a><a href="profil.html"><span data-en="Profile">Profil</span></a><a href="competences.html"><span data-en="Skills">Compétences</span></a><a href="epreuves.html"><span data-en="Exams">Épreuves</span></a><a href="realisations.html"><span data-en="Projects">Réalisations</span></a><a href="contact.html"><span>Contact</span></a></nav>
-  <div class="tools"><a class="tool3d" href="immersive.html" data-en-title="3D version" title="Version 3D">3D</a><button id="langBtn" type="button" aria-label="Changer de langue / Switch language">EN</button><button id="themeBtn" type="button" aria-label="Thème clair/sombre">◐</button></div>
-</div></header>
-<main id="main">
-<section class="hero"><div class="wrap">
-  <div class="hero-grid"><div>
-    <span class="chip" data-en="Work-study · BTS SIO SISR">En alternance · BTS SIO SISR</span>
-    <h1>Antoine Marais<span class="role" data-en="Systems &amp; network administrator in training">Administrateur systèmes &amp; réseaux en formation</span></h1>
-    <p class="lede" data-en="Work-study student in BTS SIO (SISR option) in Rennes. I design, secure and document systems and network infrastructures — from architecture to supervision.">Alternant en BTS SIO option SISR à Rennes. Je conçois, sécurise et documente des infrastructures systèmes et réseaux, de la conception jusqu'à la supervision.</p>
-    <div class="btns"><a class="btn" href="realisations.html"><span data-en="View my projects">Voir mes réalisations</span></a><a class="btn ghost" href="contact.html">Contact</a></div>
-  </div></div>
-  <div class="bento">
-    <article class="bx bx-about"><img src="assets/img/photo.jpg" alt="" loading="lazy"><span class="k"><span data-en="about">à propos</span></span>
-      <p data-en="Theory serving practice: from Labtainers labs to complex network architectures, I try to understand an infrastructure as a whole.">La théorie au service de la pratique : des laboratoires Labtainers aux architectures réseau complexes, je cherche à comprendre une infrastructure dans son ensemble.</p></article>
-    <article class="bx"><span class="k"><span data-en="education">formation</span></span><div><b class="v">BTS SIO SISR</b><p class="s">ESUP · Rennes · 2025 — 2027</p></div></article>
-    <article class="bx"><span class="k"><span data-en="work-study">alternance</span></span><div><b class="v">Dirickx</b><p class="s">Groupe Picot · <span data-en="3d company / 2d school">3 j entreprise / 2 j école</span></p></div></article>
-    <article class="bx bx-num"><span class="k"><span data-en="documented projects">projets documentés</span></span><div><b class="v">9</b><p class="s">E4 · E5 · E6</p></div></article>
-    <article class="bx bx-num"><span class="k"><span data-en="exam session">session d'examen</span></span><div><b class="v">2027</b><p class="s">BTS SIO · SISR</p></div></article>
-    <article class="bx bx-stack"><span class="k">stack</span><ul class="chips"><li>FortiGate</li><li>VLAN</li><li>Active Directory</li><li>Windows Server 2025</li><li>Proxmox VE</li><li>Debian</li><li>Tailscale</li><li>rsync</li><li>Flask</li></ul></article>
-    <article class="bx"><span class="k"><span data-en="languages">langues</span></span><div><b class="v">FR · EN</b><p class="s"><span data-en="English level B1">Anglais niveau B1</span></p></div></article>
-    <a class="bx bx-link" href="https://www.linkedin.com/in/antoine-marais/" target="_blank" rel="noopener"><span class="k">contact</span><div><b class="v">LinkedIn</b><span class="go">→</span></div></a>
-  </div>
-</div></section>
-<section class="sec"><div class="wrap">
-  <div class="sec-head"><span class="eyebrow" data-en="Exams">Épreuves</span><h2 data-en="A portfolio organised by exam">Un portfolio organisé par épreuve</h2><p data-en="Each project is linked to the BTS SIO framework block it illustrates.">Chaque projet est rattaché au bloc du référentiel BTS SIO qu'il illustre.</p></div>
-  <div class="epr"><a class="card" href="epreuves.html#e4"><span class="big">E4</span><h3 data-en="Block 1 · Support">Bloc 1 · Support</h3><p data-en="Cafeteria Flask app: building a service application for users.">Cafétéria Flask : développement d'une application de service pour les utilisateurs.</p></a><a class="card" href="epreuves.html#e5"><span class="big">E5</span><h3 data-en="Block 2 · SISR administration">Bloc 2 · Administration SISR</h3><p data-en="Infrastructure, FortiGate, Windows Server, Proxmox, backup: design, deployment and operations.">Infrastructure, FortiGate, Windows Server, Proxmox, sauvegarde : conception, déploiement et exploitation.</p></a><a class="card" href="epreuves.html#e6"><span class="big">E6</span><h3 data-en="Block 3 · Cybersecurity">Bloc 3 · Cybersécurité</h3><p data-en="Hardening, DMZ, bastion and remote access: securing equipment and usage.">Durcissement, DMZ, bastion et accès distant : sécuriser les équipements et les usages.</p></a></div>
-</div></section>
-<section class="sec"><div class="wrap">
-  <div class="sec-head"><span class="eyebrow" data-en="Selected work">Sélection</span><h2 data-en="Featured projects">Projets à la une</h2></div>
-  <div class="grid feat"><a class="card" href="projet-cyber.html" data-tags="E6">
-  <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="badge" data-en="E6 · Block 3">E6 · Bloc 3</span></div>
-  <h3 data-en="Cybersecurity: segmentation and hardening">Cybersécurité : cloisonnement et durcissement</h3>
-  <p data-en="From an unsegmented network to a defence-in-depth infrastructure: zones, bastion, hardening and traceability of denials.">D'un réseau sans cloisonnement à une infrastructure défendue en profondeur : zones, bastion, durcissement et traçabilité des refus.</p>
-  <ul class="chips"><li>FortiGate</li><li><span>Zones</span></li><li>Bastion</li><li>Tailscale</li><li>ACL</li></ul>
-  <span class="more" data-en="View project →">Voir le projet →</span>
-</a><a class="card" href="projet-fortigate-ha.html" data-tags="E5 E6">
-  <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="badge" data-en="E5 · Block 2">E5 · Bloc 2</span></div>
-  <h3 data-en="Security overhaul: FortiGate firewall HA cluster">Refonte sécurité : pare-feu FortiGate en cluster HA</h3>
-  <p data-en="Routers replaced by a two-node FortiGate high-availability cluster, now the security core of the infrastructure.">Remplacement des routeurs par un cluster de deux FortiGate en haute disponibilité, devenu le cœur sécurité de l'infrastructure.</p>
-  <ul class="chips"><li>FortiGate 81E</li><li>FortiOS 7.0</li><li>Cluster HA (FGCP)</li><li>Zones</li><li><span data-en="Firewall policies">Politiques de pare-feu</span></li></ul>
-  <span class="more" data-en="View project →">Voir le projet →</span>
-</a><a class="card" href="projet-proxmox.html" data-tags="E5">
-  <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="badge" data-en="E5 · Block 2">E5 · Bloc 2</span></div>
-  <h3 data-en="Recovering 12 lost virtual machines on Proxmox">Récupération de 12 VM disparues sur Proxmox</h3>
-  <p data-en="Critical incident: 12 VMs vanished after a wrong-disk reinstall — all recovered, with no data loss.">Incident critique : 12 VM disparues après une réinstallation sur le mauvais disque — toutes récupérées, sans perte de données.</p>
-  <ul class="chips"><li>Proxmox VE</li><li>LVM</li><li>lsblk</li><li>SQLite</li><li>Linux bridges</li></ul>
-  <span class="more" data-en="View project →">Voir le projet →</span>
-</a><a class="card" href="projet-bastion-tailscale.html" data-tags="E6">
-  <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="badge" data-en="E6 · Block 3">E6 · Bloc 3</span></div>
-  <h3 data-en="Secured remote access through a bastion (Tailscale)">Accès distant sécurisé par bastion (Tailscale)</h3>
-  <p data-en="Remote access through a bastion that works around host-network constraints, with role-based access control (tag ACLs).">Accès distant par bastion qui contourne les contraintes du réseau hôte, avec contrôle d'accès par rôles (ACL par tags).</p>
-  <ul class="chips"><li>Tailscale (WireGuard)</li><li><span data-en="Debian bastion">Bastion Debian</span></li><li>RDP</li><li>SSH</li><li><span data-en="Tag ACLs">ACL par tags</span></li></ul>
-  <span class="more" data-en="View project →">Voir le projet →</span>
-</a><a class="card" href="projet-cafeteria.html" data-tags="E4">
-  <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="badge" data-en="E4 · Block 1">E4 · Bloc 1</span></div>
-  <h3 data-en="Cafeteria app (Flask)">Application cafétéria (Flask)</h3>
-  <p data-en="A web ordering application for the school cafeteria: catalogue, cart with secret code and an admin back office.">Application web de commande pour la cafétéria de l'école : catalogue, panier avec code secret et back-office admin.</p>
-  <ul class="chips"><li>Python</li><li>Flask</li><li>SQLite</li><li>Jinja</li><li>HTML/CSS</li></ul>
-  <span class="more" data-en="View project →">Voir le projet →</span>
-</a></div>
-  <p style="margin-top:26px"><a class="btn ghost" href="realisations.html"><span data-en="See all 9 projects →">Voir les 9 réalisations →</span></a></p>
-</div></section>
-</main>
-<footer><div class="wrap"><span>© <span id="year">2026</span> Antoine Marais — BTS SIO · SISR</span><span data-en="Static site · HTML / CSS / JS">Site statique · HTML / CSS / JS</span></div></footer>
-<script src="assets/js/main.js"></script>
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="vig" aria-hidden="true"></div>
+<header class="top">
+  <a class="brand" href="#s0">antoine-marais</a>
+  <a class="pill" id="simple" href="accueil.html">Version simple</a>
+  <button id="lang" type="button" aria-label="Langue / Language">EN</button>
+</header>
+<nav class="dots" id="dots" aria-hidden="true"></nav>
+<div class="hint" id="hint"></div>
+<main id="main"></main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+var LI="https://www.linkedin.com/in/antoine-marais/",GH="https://github.com/antoine-marais";
+var S=[{"id": "s0", "kind": "core", "color": "#5cc2cf", "tag": ["accueil", "home"], "fr": {"h": "Antoine Marais", "p": "Alternant en BTS SIO option SISR à Rennes. Je conçois, sécurise et documente des infrastructures systèmes et réseaux. Fais défiler : tu traverses mon portfolio.", "t": ["BTS SIO SISR", "Dirickx · Groupe Picot", "Rennes"]}, "en": {"h": "Antoine Marais", "p": "Work-study student in BTS SIO (SISR option) in Rennes. I design, secure and document systems and network infrastructures. Scroll: you are travelling through my portfolio.", "t": ["BTS SIO SISR", "Dirickx · Groupe Picot", "Rennes"]}}, {"id": "s1", "kind": "core", "reuse": true, "cam": [6, 2.6, 8], "color": "#5cc2cf", "tag": ["profil", "profile"], "fr": {"h": "La théorie au service de la pratique", "p": "Des laboratoires Labtainers, qui m'apprennent à « casser pour mieux sécuriser », jusqu'aux architectures réseau complexes : je cherche à comprendre les infrastructures dans leur ensemble. Curiosité de l'autodidacte, rigueur de l'étudiant.", "t": ["Systèmes", "Réseaux", "Analyse de flux", "Cybersécurité", "Supervision"]}, "en": {"h": "Theory serving practice", "p": "From Labtainers labs, which teach me to “break in order to secure better”, to complex network architectures: I try to understand infrastructures as a whole. A self-learner's curiosity, a student's rigour.", "t": ["Systems", "Networks", "Traffic analysis", "Cybersecurity", "Supervision"]}}, {"id": "s2", "kind": "timeline", "color": "#8fb4d8", "tag": ["parcours", "background"], "fr": {"h": "Formation et expériences", "b": ["2025 — 2027 · BTS SIO — option SISR · ESUP · Rennes", "2026 — 2027 · Alternance · Dirickx · Groupe Picot", "Juin — Juil. 2026 · Stage · Dirickx · Groupe Picot", "2021 — 2025 · Baccalauréat STI2D · Lycée Joliot-Curie · Rennes", "Aussi : Hyper U, SVA, stage ENTORIA"]}, "en": {"h": "Education and experience", "b": ["2025 — 2027 · BTS SIO — SISR option · ESUP · Rennes", "2026 — 2027 · Work-study · Dirickx · Groupe Picot", "Jun — Jul 2026 · Internship · Dirickx · Groupe Picot", "2021 — 2025 · STI2D Baccalaureate · Joliot-Curie High School · Rennes", "Also: Hyper U, SVA, ENTORIA internship"]}}, {"id": "s3", "kind": "skills", "color": "#b3a7d6", "tag": ["compétences", "skills"], "fr": {"h": "Six pôles de compétences", "p": "Un socle autour de l'infrastructure et de la sécurité, qui couvre les trois blocs du référentiel BTS SIO.", "t": ["Système", "Réseau", "Analyse", "Offensif", "Défensif", "Automatisation"]}, "en": {"h": "Six skill areas", "p": "A foundation around infrastructure and security, covering the three blocks of the BTS SIO framework.", "t": ["System", "Network", "Analysis", "Offensive", "Defensive", "Automation"]}}, {"id": "p-cyber", "kind": "gate", "color": "#d98a8a", "tag": ["E6 · Bloc 3", "E6 · Block 3"], "link": "projet-cyber.html", "fr": {"h": "Cybersécurité : cloisonnement et durcissement", "p": "D'un réseau sans cloisonnement à une infrastructure défendue en profondeur : zones, bastion, durcissement et traçabilité des refus.", "b": ["100 % des sessions vers le DC couvertes par une politique", "1 point d'entrée d'administration", "5 zones de pare-feu"], "t": ["FortiGate", "Zones", "Bastion", "Tailscale", "ACL"]}, "en": {"h": "Cybersecurity: segmentation and hardening", "p": "From an unsegmented network to a defence-in-depth infrastructure: zones, bastion, hardening and traceability of denials.", "b": ["100 % of sessions to the DC covered by a policy", "1 administration entry point", "5 firewall zones"], "t": ["FortiGate", "Zones", "Bastion", "Tailscale", "ACL"]}}, {"id": "p-fortigate-ha", "kind": "ha", "color": "#5cc2cf", "tag": ["E5 · Bloc 2", "E5 · Block 2"], "link": "projet-fortigate-ha.html", "fr": {"h": "Refonte sécurité : pare-feu FortiGate en cluster HA", "p": "Remplacement des routeurs par un cluster de deux FortiGate en haute disponibilité, devenu le cœur sécurité de l'infrastructure.", "b": ["2 FortiGate 81E en cluster"], "t": ["FortiGate 81E", "FortiOS 7.0", "Cluster HA (FGCP)", "Zones", "Politiques de pare-feu"]}, "en": {"h": "Security overhaul: FortiGate firewall HA cluster", "p": "Routers replaced by a two-node FortiGate high-availability cluster, now the security core of the infrastructure.", "b": ["2 FortiGate 81E clustered"], "t": ["FortiGate 81E", "FortiOS 7.0", "Cluster HA (FGCP)", "Zones", "Firewall policies"]}}, {"id": "p-windows-server-2025", "kind": "ad", "color": "#b3a7d6", "tag": ["E5 · Bloc 2", "E5 · Block 2"], "link": "projet-windows-server-2025.html", "fr": {"h": "Services d'infrastructure Windows Server 2025", "p": "Contrôleur de domaine Active Directory avec DNS et DHCP centralisés pour un domaine d'entreprise.", "b": [], "t": ["Windows Server 2025", "AD DS", "DNS", "DHCP", "Relais DHCP"]}, "en": {"h": "Windows Server 2025 infrastructure services", "p": "Active Directory domain controller with centralised DNS and DHCP for an enterprise domain.", "b": [], "t": ["Windows Server 2025", "AD DS", "DNS", "DHCP", "DHCP relay"]}}, {"id": "p-proxmox-dl380", "kind": "vm6", "color": "#d9b26a", "tag": ["E5 · Bloc 2", "E5 · Block 2"], "link": "projet-proxmox-dl380.html", "fr": {"h": "Plateforme de virtualisation Proxmox (ProLiant DL380)", "p": "Virtualisation d'entreprise sur serveur HP ProLiant, en ZFS RAID10, avec pont VLAN-aware.", "b": ["RAID10 ZFS sur 4 disques"], "t": ["Proxmox VE", "ZFS RAID10", "HP ProLiant DL380 Gen9", "iLO", "Pont VLAN-aware"]}, "en": {"h": "Proxmox virtualisation platform (ProLiant DL380)", "p": "Enterprise virtualisation on an HP ProLiant server, using ZFS RAID10 and a VLAN-aware bridge.", "b": ["RAID10 ZFS on 4 disks"], "t": ["Proxmox VE", "ZFS RAID10", "HP ProLiant DL380 Gen9", "iLO", "VLAN-aware bridge"]}}, {"id": "p-proxmox", "kind": "vm12", "color": "#d9b26a", "tag": ["E5 · Bloc 2", "E5 · Block 2"], "link": "projet-proxmox.html", "fr": {"h": "Récupération de 12 VM disparues sur Proxmox", "p": "Incident critique : 12 VM disparues après une réinstallation sur le mauvais disque — toutes récupérées, sans perte de données.", "b": ["12 VM récupérées", "0 perte de données"], "t": ["Proxmox VE", "LVM", "lsblk", "SQLite", "Linux bridges"]}, "en": {"h": "Recovering 12 lost virtual machines on Proxmox", "p": "Critical incident: 12 VMs vanished after a wrong-disk reinstall — all recovered, with no data loss.", "b": ["12 VMs recovered", "0 data loss"], "t": ["Proxmox VE", "LVM", "lsblk", "SQLite", "Linux bridges"]}}, {"id": "p-bastion-tailscale", "kind": "bastion", "color": "#8fb4d8", "tag": ["E6 · Bloc 3", "E6 · Block 3"], "link": "projet-bastion-tailscale.html", "fr": {"h": "Accès distant sécurisé par bastion (Tailscale)", "p": "Accès distant par bastion qui contourne les contraintes du réseau hôte, avec contrôle d'accès par rôles (ACL par tags).", "b": [], "t": ["Tailscale (WireGuard)", "Bastion Debian", "RDP", "SSH", "ACL par tags"]}, "en": {"h": "Secured remote access through a bastion (Tailscale)", "p": "Remote access through a bastion that works around host-network constraints, with role-based access control (tag ACLs).", "b": [], "t": ["Tailscale (WireGuard)", "Debian bastion", "RDP", "SSH", "Tag ACLs"]}}, {"id": "p-vlan-dmz", "kind": "layers", "color": "#8fb4d8", "tag": ["E5 · Bloc 2", "E5 · Block 2"], "link": "projet-vlan-dmz.html", "fr": {"h": "Segmentation VLAN et DMZ", "p": "Segmentation du réseau en VLAN et zone démilitarisée pour isoler les services exposés. Projet en cours.", "b": [], "t": ["VLAN 802.1Q", "DMZ", "nginx", "Politiques FortiGate"]}, "en": {"h": "VLAN segmentation and DMZ", "p": "Network segmentation into VLANs and a demilitarised zone to isolate exposed services. Work in progress.", "b": [], "t": ["VLAN 802.1Q", "DMZ", "nginx", "FortiGate policies"]}}, {"id": "p-sauvegarde", "kind": "backup", "color": "#5cc2cf", "tag": ["E5 · Bloc 2", "E5 · Block 2"], "link": "projet-sauvegarde.html", "fr": {"h": "Sauvegarde automatisée 3-2-1", "p": "Chaîne de sauvegarde résiliente : Bash + rsync, cron, NAS et cloud (Backblaze B2), avec alertes mail GLPI.", "b": ["3-2-1 règle appliquée", "2 h fréquence auto"], "t": ["Bash", "rsync", "cron", "NAS", "Backblaze B2"]}, "en": {"h": "Automated 3-2-1 backup", "p": "A resilient backup chain: Bash + rsync, cron, NAS and cloud (Backblaze B2), with GLPI mail alerts.", "b": ["3-2-1 rule applied", "2 h auto frequency"], "t": ["Bash", "rsync", "cron", "NAS", "Backblaze B2"]}}, {"id": "p-cafeteria", "kind": "browser", "color": "#8fb4d8", "tag": ["E4 · Bloc 1", "E4 · Block 1"], "link": "projet-cafeteria.html", "fr": {"h": "Application cafétéria (Flask)", "p": "Application web de commande pour la cafétéria de l'école : catalogue, panier avec code secret et back-office admin.", "b": [], "t": ["Python", "Flask", "SQLite", "Jinja", "HTML/CSS"]}, "en": {"h": "Cafeteria app (Flask)", "p": "A web ordering application for the school cafeteria: catalogue, cart with secret code and an admin back office.", "b": [], "t": ["Python", "Flask", "SQLite", "Jinja", "HTML/CSS"]}}, {"id": "s-contact", "kind": "knot", "color": "#5cc2cf", "tag": ["contact", "contact"], "fr": {"h": "Parlons-en", "p": "Après mon BTS, je continue mes études, si possible en alternance. Réseaux, systèmes, cybersécurité.", "t": ["Réseau", "Pare-feu", "Active Directory", "Proxmox", "Documentation"]}, "en": {"h": "Let's talk", "p": "After my BTS I plan to continue my studies, preferably as an apprentice. Networks, systems, cybersecurity.", "t": ["Networks", "Firewall", "Active Directory", "Proxmox", "Documentation"]}}];
+var UI={fr:{simple:"Version simple",hint:"↓ scroll pour voyager dans mon portfolio",read:"Voir le projet →",sec:"SECTION "},
+        en:{simple:"Simple version",hint:"↓ scroll to travel through my portfolio",read:"View project →",sec:"SECTION "}};
+var lang="fr";try{lang=localStorage.getItem("pf-lang")==="en"?"en":"fr";}catch(e){}
+var q=new URLSearchParams(location.search).get("lang");if(q==="en"||q==="fr")lang=q;
+var main=document.getElementById("main"),dotsEl=document.getElementById("dots"),secs=[],io=null;
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+if("IntersectionObserver" in window)io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add("in");});},{threshold:.25});
+function render(){
+  document.documentElement.lang=lang;
+  var n=S.length;
+  main.innerHTML=S.map(function(s,i){var c=s[lang],tg=s.tag[lang==="fr"?0:1];
+    var h='<section id="'+s.id+'" style="--c:'+s.color+'"><div class="panel"><span class="tag">'+UI[lang].sec+String(i+1).padStart(2,"0")+"/"+n+" · "+esc(tg)+"</span>"+
+      (i===0?"<h1>"+esc(c.h)+"</h1>":"<h2>"+esc(c.h)+"</h2>")+(c.p?"<p>"+esc(c.p)+"</p>":"")+
+      (c.b&&c.b.length?'<ul class="b">'+c.b.map(function(x){return "<li>"+esc(x)+"</li>";}).join("")+"</ul>":"")+
+      (c.t?'<ul class="t">'+c.t.map(function(x){return "<li>"+esc(x)+"</li>";}).join("")+"</ul>":"");
+    if(s.link)h+='<div class="btns"><a class="p" href="'+s.link+'">'+UI[lang].read+"</a></div>";
+    if(s.id==="s-contact")h+='<div class="btns"><a class="p" href="'+LI+'">LinkedIn</a><a href="'+GH+'">GitHub</a><a href="contact.html">Contact</a></div>';
+    return h+"</div></section>";}).join("");
+  document.getElementById("lang").textContent=lang==="fr"?"EN":"FR";
+  document.getElementById("simple").textContent=UI[lang].simple;
+  document.getElementById("hint").textContent=UI[lang].hint;
+  try{localStorage.setItem("pf-lang",lang);}catch(e){}
+  secs=[].slice.call(document.querySelectorAll("section"));
+  secs.forEach(function(s){if(io)io.observe(s);if(window.__noGL)s.classList.add("in");});
+}
+S.forEach(function(s){var a=document.createElement("a");a.href="#"+s.id;dotsEl.appendChild(a);});
+var dotEls=[].slice.call(dotsEl.children);
+document.getElementById("lang").onclick=function(){lang=lang==="fr"?"en":"fr";render();};
+
+var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+var glOK=!!window.THREE&&!reduce;
+if(glOK){try{var cc=document.createElement("canvas");glOK=!!(cc.getContext("webgl")||cc.getContext("experimental-webgl"));}catch(e){glOK=false;}}
+/* appareil modeste : on affiche la version lisible sans 3D (le bouton « Version simple » reste disponible) */
+if(glOK&&((navigator.deviceMemory&&navigator.deviceMemory<=2)||(navigator.hardwareConcurrency&&navigator.hardwareConcurrency<=2)))glOK=false;
+if(!glOK){document.body.classList.add("nogl");window.__noGL=true;}
+render();
+
+if(glOK){(function(){
+var canvas=document.getElementById("gl"),mobile=innerWidth<800;
+var renderer=new THREE.WebGLRenderer({canvas:canvas,antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,mobile?1.5:2));renderer.setClearColor(0x07080c,1);
+var scene=new THREE.Scene();scene.fog=new THREE.FogExp2(0x07080c,.016);
+var camera=new THREE.PerspectiveCamera(55,1,.1,500);
+var V=function(x,y,z){return new THREE.Vector3(x,y,z);},anim=[];
+var INK=0xe8e8db,ACC=0x5cc2cf,WARN=0xd9b26a,BLUE=0x8fb4d8,VIO=0xb3a7d6,RED=0xe06c6c,PINK=0xd98a8a;
+var hex=function(n){return "#"+n.toString(16).padStart(6,"0");};
+var N=S.length,STEP=30;
+
+(function(){var n=mobile?900:2400,g=new THREE.BufferGeometry(),p=new Float32Array(n*3),L=N*STEP+60;
+ for(var i=0;i<n;i++){p[i*3]=-40+Math.random()*L;p[i*3+1]=-18+Math.random()*44;p[i*3+2]=-45+Math.random()*90;}
+ g.setAttribute("position",new THREE.BufferAttribute(p,3));
+ scene.add(new THREE.Points(g,new THREE.PointsMaterial({color:0xa0a290,size:.12,transparent:true,opacity:.6})));
+ var gr=new THREE.GridHelper(L+80,Math.round((L+80)/2),0x2a2c20,0x1c1d14);gr.position.set(L/2-40,-2,0);scene.add(gr);})();
+
+function label(text,color,w){var c=document.createElement("canvas");c.width=512;c.height=96;var x=c.getContext("2d");
+ x.font="500 42px JetBrains Mono, monospace";x.textAlign="center";x.textBaseline="middle";x.fillStyle=color;x.fillText(text,256,48);
+ var s=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),transparent:true,depthWrite:false}));s.scale.set(w||4,(w||4)*.1875,1);return s;}
+function edges(geo,color,dash){var m=dash?new THREE.LineDashedMaterial({color:color,dashSize:.18,gapSize:.12}):new THREE.LineBasicMaterial({color:color});
+ var l=new THREE.LineSegments(new THREE.EdgesGeometry(geo),m);if(dash)l.computeLineDistances();return l;}
+function fill(geo,color,op){return new THREE.Mesh(geo,new THREE.MeshBasicMaterial({color:color,transparent:true,opacity:op}));}
+function box(g,w,h,d,x,y,z,color,op,dash){var geo=new THREE.BoxGeometry(w,h,d),e=edges(geo,color,dash),f=fill(geo,color,op==null?.12:op);e.position.set(x,y,z);f.position.copy(e.position);g.add(e,f);return f;}
+function ball(r,color,op){return new THREE.Mesh(new THREE.SphereGeometry(r,12,12),new THREE.MeshBasicMaterial({color:color,transparent:true,opacity:op==null?1:op}));}
+function wire(geo,color){return new THREE.Mesh(geo,new THREE.MeshBasicMaterial({color:color,wireframe:true}));}
+function line(a,b,color,op,dash){var g=new THREE.BufferGeometry().setFromPoints([a,b]);
+ var m=dash?new THREE.LineDashedMaterial({color:color,dashSize:.3,gapSize:.25,transparent:true,opacity:op||.6}):new THREE.LineBasicMaterial({color:color,transparent:true,opacity:op||.55});
+ var l=new THREE.Line(g,m);if(dash)l.computeLineDistances();return l;}
+function lab(g,t,c,w,x,y,z){var l=label(t,hex(c),w);l.position.set(x,y,z);g.add(l);return l;}
+function burstFx(g,c){var b=ball(.3,c,0);g.add(b);return {m:b,go:function(p){b.position.copy(p);b.material.opacity=1;b.scale.setScalar(1);},
+  tick:function(dt){if(b.material.opacity>0){b.material.opacity=Math.max(0,b.material.opacity-dt*1.6);b.scale.addScalar(dt*3);}}};}
+
+/* ----- constructeurs de scènes : retournent {cam:[dx,dy,dz], tgt:[dx,dy,dz]} ----- */
+var BUILD={};
+BUILD.core=function(g){var w=wire(new THREE.IcosahedronGeometry(1.7,1),ACC),i=new THREE.Mesh(new THREE.OctahedronGeometry(.9),new THREE.MeshBasicMaterial({color:WARN,transparent:true,opacity:.4}));
+ var r=new THREE.Mesh(new THREE.TorusGeometry(2.5,.03,8,80),new THREE.MeshBasicMaterial({color:ACC}));r.rotation.x=Math.PI/2;g.add(w,i,r);lab(g,"ANTOINE MARAIS",INK,5,0,3.3,0);
+ anim.push(function(t,dt){w.rotation.y+=dt*.4;w.rotation.x+=dt*.15;i.rotation.y-=dt*.6;r.rotation.z+=dt*.5;});return {cam:[0,9,17]};};
+BUILD.timeline=function(g){var yrs=["2021","2024","2025","2026","2027"],cl=[BLUE,BLUE,BLUE,ACC,ACC],pts=[];
+ yrs.forEach(function(y,i){var p=V(-8+i*4,-.5+i*.6,Math.sin(i*1.1)*1.4);pts.push(p);var b=ball(.45,cl[i],i===4?.4:1);b.position.copy(p);g.add(b);lab(g,y,cl[i],2.2,p.x,p.y+1.3,p.z);
+  if(i<4)g.add(line(p,V(-8+(i+1)*4,-.5+(i+1)*.6,Math.sin((i+1)*1.1)*1.4),BLUE,.7));});
+ var tr=ball(.2,INK);g.add(tr);anim.push(function(t){var u=(t*.12)%1*4,i=Math.min(3,Math.floor(u)),f=u-i;tr.position.lerpVectors(pts[i],pts[i+1],f);});return {cam:[0,4.5,19]};};
+BUILD.skills=function(g){var r=new THREE.Group();g.add(r);var nm=["SYSTÈME","RÉSEAU","ANALYSE","OFFENSIF","DÉFENSIF","AUTO"],cl=[VIO,BLUE,WARN,PINK,ACC,ACC],nodes=[];
+ nm.forEach(function(n,i){var a=Math.PI*2*i/6,p=V(Math.cos(a)*4.2,0,Math.sin(a)*4.2),m=wire(new THREE.IcosahedronGeometry(.75,0),cl[i]);m.position.copy(p);r.add(m);nodes.push(m);
+  var f=fill(new THREE.IcosahedronGeometry(.5,0),cl[i],.3);f.position.copy(p);r.add(f);lab(r,n,cl[i],3,p.x,1.5,p.z);r.add(line(V(0,0,0),p,cl[i],.35));});
+ var h=wire(new THREE.OctahedronGeometry(.6),ACC);g.add(h);anim.push(function(t,dt){r.rotation.y+=dt*.25;h.rotation.y+=dt;nodes.forEach(function(n){n.rotation.x+=dt*.6;n.rotation.y+=dt*.4;});});return {cam:[0,6,11]};};
+BUILD.zones=function(g){var fw=wire(new THREE.IcosahedronGeometry(1.4,1),ACC),fc=new THREE.Mesh(new THREE.OctahedronGeometry(.7),new THREE.MeshBasicMaterial({color:WARN,transparent:true,opacity:.4})),fr=new THREE.Mesh(new THREE.TorusGeometry(2.1,.03,8,80),new THREE.MeshBasicMaterial({color:ACC}));fr.rotation.x=Math.PI/2;g.add(fw,fc,fr);
+ var zn=[{n:"ADMIN",c:BLUE},{n:"SERVEURS",c:VIO},{n:"CLIENTS",c:ACC},{n:"WI-FI",c:WARN,d:true},{n:"DMZ",c:PINK}],zp=[];
+ zn.forEach(function(z,i){var a=Math.PI*2*i/5+Math.PI*.9,p=V(Math.cos(a)*7.5,0,Math.sin(a)*7.5);z.p=p;var q=new THREE.Group();q.position.copy(p);g.add(q);
+  if(i===0){box(q,1.8,1.2,1.8,0,0,0,z.c);box(q,.7,.7,.7,0,1.2,0,z.c);}
+  if(i===1){for(var k=0;k<3;k++)box(q,1.8,.55,1.4,0,-.6+k*.7,0,z.c);}
+  if(i===2){box(q,.9,.7,.9,-1.2,-.2,0,z.c);box(q,.9,.7,.9,0,-.2,.6,z.c);box(q,.9,.7,.9,1.2,-.2,0,z.c);}
+  if(i===3){for(var k2=1;k2<=3;k2++){var e=edges(new THREE.TorusGeometry(.5*k2,.02,4,32),z.c);e.rotation.x=Math.PI/2;e.position.y=-.4+k2*.3;q.add(e);}}
+  if(i===4){var cg=new THREE.ConeGeometry(1.2,1.8,4),ee=edges(cg,z.c),ff=fill(cg,z.c,.12);ee.position.y=.2;ff.position.y=.2;q.add(ee,ff);}
+  lab(q,z.n,z.c,3,0,2.3,0);g.add(line(V(0,0,0),p,z.c,z.d?.7:.55,z.d));
+  zp.push({z:z,pk:(z.d?[0]:[0,1,2]).map(function(k){var m=ball(.12,z.c);g.add(m);return {m:m,t:Math.random(),d:k%2?1:-1,s:.12+Math.random()*.1};})});});
+ var bf=burstFx(g,RED);
+ anim.push(function(t,dt){fw.rotation.y+=dt*.4;fc.rotation.y-=dt*.6;fr.rotation.z+=dt*.5;
+  zp.forEach(function(o,i){o.pk.forEach(function(p){p.t+=dt*p.s*(o.z.d?.5:1);var tt=p.t%1;
+   if(i===4&&p.d<0){if(tt<.55){p.m.position.copy(o.z.p).multiplyScalar(1-tt);p.m.material.color.setHex(PINK);p.m.visible=true;}else{p.m.visible=false;if(tt-.55<dt*p.s+.002)bf.go(o.z.p.clone().multiplyScalar(.45));}}
+   else{var u=p.d>0?tt:1-tt;p.m.position.copy(o.z.p).multiplyScalar(u);p.m.visible=true;}});});bf.tick(dt);});return {cam:[0,8,15]};};
+BUILD.gate=function(g){box(g,3.4,3.6,.5,-2.6,.3,0,PINK,.18);box(g,3.4,3.6,.5,2.6,.3,0,PINK,.18);box(g,1.8,.8,.5,0,1.7,0,PINK,.18);
+ box(g,2.2,2.2,2.2,0,.1,-4.2,ACC,.15);lab(g,"BASTION",ACC,3,0,2.4,-4.2);lab(g,"ACL · ZONES",PINK,3.6,0,3.4,0);
+ var pk=[];for(var i=0;i<6;i++){var ok=i%2===0,m=ball(.16,ok?ACC:RED);g.add(m);pk.push({m:m,t:i/6,ok:ok,y:(i%3-1)*.7});}var bf=burstFx(g,RED);
+ anim.push(function(t,dt){pk.forEach(function(p){p.t+=dt*.2;var u=p.t%1;if(p.ok){p.m.position.set(0,-.4,7-u*13);p.m.visible=true;}
+  else{if(u<.5){p.m.position.set(p.y*2.6,p.y*.5+.4,7-u*13);p.m.visible=true;}else{p.m.visible=false;if(u-.5<dt*.2+.002)bf.go(V(p.y*2.6,p.y*.5+.4,.7));}}});bf.tick(dt);});return {cam:[0,2.5,11],tgt:[0,0,-2]};};
+BUILD.ha=function(g){var a=wire(new THREE.IcosahedronGeometry(1.3,1),ACC),b=wire(new THREE.IcosahedronGeometry(1.3,1),BLUE);a.position.x=-3.6;b.position.x=3.6;g.add(a,b);
+ lab(g,"ACTIF",ACC,3,-3.6,2.4,0);lab(g,"PASSIF",BLUE,3,3.6,2.4,0);g.add(line(V(-2.3,0,0),V(2.3,0,0),WARN,.8,true));lab(g,"HEARTBEAT",WARN,3.2,0,.8,0);
+ box(g,3,.8,1.6,0,-3.4,0,INK,.1);lab(g,"SWITCHS",INK,2.8,0,-2.4,0);g.add(line(V(-1,-3,0),V(-3.6,-1.3,0),ACC,.6));g.add(line(V(1,-3,0),V(3.6,-1.3,0),BLUE,.4,true));
+ var pk=[0,1,2].map(function(i){var m=ball(.13,ACC);g.add(m);return {m:m,t:i/3};});var hb=ball(.13,WARN);g.add(hb);
+ anim.push(function(t,dt){a.rotation.y+=dt*.4;b.rotation.y-=dt*.3;pk.forEach(function(p){p.t+=dt*.3;var u=p.t%1;p.m.position.set(-1+u*-2.6,-3+u*1.7,0);});var u2=(t*.5)%1;hb.position.set(-2.3+u2*4.6,0,0);});return {cam:[0,3,13]};};
+BUILD.ad=function(g){for(var k=0;k<3;k++)box(g,2.4,.7,1.8,0,-2+k*.9,0,VIO);lab(g,"AD · DNS · DHCP",VIO,4,0,-3.6,0);
+ var root=ball(.3,ACC);root.position.set(0,2.6,0);g.add(root);var kids=[];
+ [-3,0,3].forEach(function(x,i){var c=ball(.22,VIO);c.position.set(x,1.2,0);g.add(c);g.add(line(root.position,c.position,VIO,.6));kids.push(c);
+  [-.8,.8].forEach(function(dx){var l=ball(.14,INK,.7);l.position.set(x+dx,0,0);g.add(l);g.add(line(c.position,l.position,INK,.35));});});
+ lab(g,"globalcorp.lan",ACC,3.6,0,3.5,0);anim.push(function(t){kids.forEach(function(k,i){k.scale.setScalar(1+.15*Math.sin(t*2+i));});});return {cam:[0,3.5,14]};};
+function vmgrid(g,rows,cols,txt,col){box(g,cols*1.9+.4,rows*1.35+.4,3.4,0,0,0,col,.04);var v=[];
+ for(var r=0;r<rows;r++)for(var c=0;c<cols;c++)v.push(box(g,1.3,1,1.3,-(cols-1)*.95+c*1.9,(rows-1)*.67-r*1.35,0,col,.05));
+ lab(g,txt,col,4,0,rows*.67+1.6,0);anim.push(function(t){var k=(t*1.3)%(v.length+4);v.forEach(function(m,i){m.material.opacity=k>i+1?.55:.05;});});}
+BUILD.vm12=function(g){vmgrid(g,3,4,"12 / 12 VM",WARN);return {cam:[0,2.5,13]};};
+BUILD.vm6=function(g){vmgrid(g,2,3,"PROXMOX · DL380",WARN);return {cam:[0,2.5,11]};};
+BUILD.bastion=function(g){box(g,1.3,.8,1,-8,0,0,INK,.15);lab(g,"POSTE",INK,2.4,-8,1.4,0);
+ var mesh=[V(-4.2,.9,.6),V(-3.2,-.8,-.4),V(-2.2,.7,.2),V(-4,-.2,-.9),V(-1.8,-.6,.8)].map(function(p){var b=ball(.18,BLUE);b.position.copy(p);g.add(b);return p;});
+ mesh.forEach(function(p,i){mesh.forEach(function(q,j){if(j>i&&p.distanceTo(q)<2.4)g.add(line(p,q,BLUE,.4));});});lab(g,"TAILSCALE",BLUE,3.4,-3,2.4,0);
+ var bs=wire(new THREE.OctahedronGeometry(1),ACC);bs.position.set(1,0,0);g.add(bs);lab(g,"BASTION",ACC,3,1,2,0);
+ [[6,2.2,0,"DC"],[6,0,0,"SWITCHS"],[6,-2.2,0,"PROXMOX"]].forEach(function(t){box(g,1.6,.9,1,t[0],t[1],t[2],VIO,.15);lab(g,t[3],VIO,2.6,t[0],t[1]+1,0);g.add(line(V(2,0,0),V(t[0]-.9,t[1],0),VIO,.4));});
+ g.add(line(V(-7.3,0,0),V(-4.6,0,0),INK,.5));g.add(line(V(-1.6,0,0),V(0,0,0),BLUE,.5));
+ var pk=[0,1,2,3].map(function(i){var m=ball(.13,WARN);g.add(m);return {m:m,t:i/4};});
+ anim.push(function(t,dt){bs.rotation.y+=dt*.8;pk.forEach(function(p){p.t+=dt*.16;var u=p.t%1;p.m.position.set(-7.3+u*14,Math.sin(u*Math.PI)*.4,0);});});return {cam:[0,4,18]};};
+BUILD.layers=function(g){var nm=[["ADMIN",BLUE],["SERVEURS",VIO],["CLIENTS",ACC]],pl=[];
+ nm.forEach(function(n,i){box(g,6,.15,4,-2.5,-1.2+i*1.5,0,n[1],.14);lab(g,n[0],n[1],2.8,-2.5,-.4+i*1.5,2.4);});
+ box(g,3,2.4,3,5.5,.2,0,PINK,.14);lab(g,"DMZ",PINK,2.4,5.5,2,0);g.add(line(V(1.4,.2,0),V(4,.2,0),RED,.5,true));
+ var p=ball(.15,PINK);g.add(p);var bf=burstFx(g,RED);
+ anim.push(function(t,dt){var u=(t*.25)%1;if(u<.45){p.position.set(4-u*4,.2,0);p.visible=true;}else{p.visible=false;if(u-.45<dt*.25+.002)bf.go(V(2.2,.2,0));}bf.tick(dt);});return {cam:[0,4,14]};};
+BUILD.backup=function(g){box(g,2.2,1.6,2.2,-6,0,0,ACC,.18);box(g,2.2,1.6,2.2,0,0,0,ACC,.18);
+ [[6,0,0],[7.4,1.2,0],[7.4,-1.2,0]].forEach(function(p){var s=ball(.9,ACC,.18),w=wire(new THREE.SphereGeometry(.9,10,10),ACC);s.position.set(p[0],p[1],p[2]);w.position.copy(s.position);g.add(s,w);});
+ lab(g,"SOURCE",ACC,3,-6,2.4,0);lab(g,"NAS",ACC,3,0,2.4,0);lab(g,"CLOUD",ACC,3,6.7,2.4,0);g.add(line(V(-6,0,0),V(0,0,0),ACC,.6));g.add(line(V(0,0,0),V(6,0,0),ACC,.6,true));lab(g,"3 · 2 · 1",WARN,3.4,0,4,0);
+ var pk=[0,1,2,3].map(function(i){var m=ball(.15,INK);g.add(m);return {m:m,t:i/4};});
+ var pu=new THREE.Mesh(new THREE.TorusGeometry(1.4,.03,6,40),new THREE.MeshBasicMaterial({color:ACC,transparent:true,opacity:0}));pu.position.set(-6,0,0);pu.rotation.x=Math.PI/2;g.add(pu);
+ anim.push(function(t,dt){pk.forEach(function(p){p.t+=dt*.18;p.m.position.set(-6+(p.t%1)*12,0,0);});var q=(t*.5)%1;pu.scale.setScalar(1+q*1.2);pu.material.opacity=(1-q)*.8;});return {cam:[0,4.5,20]};};
+BUILD.browser=function(g){box(g,6.4,4.2,.3,0,0,0,BLUE,.1);box(g,6.4,.5,.31,0,1.85,0,BLUE,.3);
+ [-2.2,0,2.2].forEach(function(x){box(g,1.7,1.2,.2,x,.4,.3,BLUE,.2);box(g,1.7,.4,.2,x,-.9,.3,BLUE,.15);});
+ [-2.7,-2.3,-1.9].forEach(function(x){var d=ball(.08,BLUE);d.position.set(x,1.85,.2);g.add(d);});
+ box(g,1.2,.8,1,-6.5,-1.4,3,ACC,.2);lab(g,"PANIER",ACC,2.4,-6.5,.2,3);lab(g,"FLASK · SQLITE",BLUE,4,0,3.6,0);
+ var od=[0,1,2].map(function(i){var m=ball(.15,ACC);g.add(m);return {m:m,t:i/3};});
+ anim.push(function(t,dt){od.forEach(function(o){o.t+=dt*.25;var u=o.t%1;o.m.position.set(-6.5+u*6.4,-1+u*1.2,3-u*2.7);});});return {cam:[-1,2,13]};};
+BUILD.knot=function(g){var k=wire(new THREE.TorusKnotGeometry(1.5,.3,100,12),ACC);g.add(k);anim.push(function(t,dt){k.rotation.x+=dt*.3;k.rotation.y+=dt*.5;});return {cam:[0,2,9]};};
+
+/* placement : un centre par scène (les scènes « reuse » partagent le précédent) */
+var wpCam=[],wpTgt=[],centers=[],last=null;
+S.forEach(function(s,i){var c;
+ if(s.reuse&&last){c=last;var cam=s.cam;wpCam.push(c.clone().add(V(cam[0],cam[1],cam[2])));wpTgt.push(c.clone());centers.push(c);return;}
+ c=V(i*STEP,0,(i%2?3:-3));last=c;var g=new THREE.Group();g.position.copy(c);scene.add(g);
+ var r=BUILD[s.kind](g)||{cam:[0,4,14]};var cm=r.cam,tg=r.tgt||[0,0,0];
+ wpCam.push(c.clone().add(V(cm[0],cm[1],cm[2])));wpTgt.push(c.clone().add(V(tg[0],tg[1],tg[2])));centers.push(c);});
+var camC=new THREE.CatmullRomCurve3(wpCam,false,"centripetal"),tgC=new THREE.CatmullRomCurve3(wpTgt,false,"centripetal");
+var target=0,cur=0;
+function onScroll(){var m=document.documentElement.scrollHeight-innerHeight;target=m>0?Math.min(1,Math.max(0,scrollY/m)):0;
+ var idx=Math.round(target*(N-1));dotEls.forEach(function(d,i){d.classList.toggle("on",i===idx);});document.getElementById("hint").classList.toggle("off",scrollY>40);}
+addEventListener("scroll",onScroll,{passive:true});onScroll();
+function resize(){var w=innerWidth,h=innerHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.fov=w<800?72:55;
+ if(w>=800)camera.setViewOffset(w,h,-w*.14,0,w,h);else camera.clearViewOffset();camera.updateProjectionMatrix();}
+addEventListener("resize",resize);resize();
+var clock=new THREE.Clock();
+function frame(){var dt=Math.min(clock.getDelta(),.05),tm=clock.elapsedTime;cur+=(target-cur)*Math.min(1,dt*3.2);var t=Math.min(.9999,Math.max(0,cur));
+ camera.position.copy(camC.getPoint(t));camera.lookAt(tgC.getPoint(t));camera.position.y+=Math.sin(tm*.6)*.05;
+ for(var i=0;i<anim.length;i++)anim[i](tm,dt);renderer.render(scene,camera);requestAnimationFrame(frame);}
+requestAnimationFrame(frame);
+})();}
+</script>
 </body>
 </html>
