@@ -53,9 +53,8 @@ nav.main a{text-decoration:none;color:var(--muted);padding:8px 12px;border-radiu
 nav.main a:hover{color:var(--ink);background:var(--surface2)}
 nav.main a[aria-current="page"]{color:var(--ink);background:var(--surface2)}
 .tools{display:flex;gap:6px}
-.tools button,.tools a.tool3d,.navtoggle{font:500 .78rem var(--mono);color:var(--ink2);background:transparent;border:1px solid var(--line2);height:34px;min-width:34px;padding:0 11px;border-radius:8px;cursor:pointer;text-decoration:none;display:inline-grid;place-items:center;transition:border-color .2s,color .2s,background .2s}
-.tools button:hover,.tools a.tool3d:hover,.navtoggle:hover{border-color:var(--accent);color:var(--accent)}
-.tools a.tool3d{background:var(--accent-soft);border-color:transparent;color:var(--accent);font-weight:600}
+.tools button,.navtoggle{font:500 .78rem var(--mono);color:var(--ink2);background:transparent;border:1px solid var(--line2);height:34px;min-width:34px;padding:0 11px;border-radius:8px;cursor:pointer;text-decoration:none;display:inline-grid;place-items:center;transition:border-color .2s,color .2s,background .2s}
+.tools button:hover,.navtoggle:hover{border-color:var(--accent);color:var(--accent)}
 .navtoggle{display:none}
 .progress{position:fixed;inset:0 0 auto 0;height:2px;z-index:60;pointer-events:none}
 .progress i{display:block;height:100%;background:var(--accent);transform:scaleX(0);transform-origin:0 50%}
