@@ -34,7 +34,7 @@ body::before{content:"";position:fixed;inset:0 0 auto 0;height:520px;z-index:-1;
 main{flex:1}
 a{color:inherit}
 p{margin:0 0 1em}
-img{max-width:100%;display:block}
+img{max-width:100%;height:auto;display:block}
 h1,h2,h3{margin:0;line-height:1.1;letter-spacing:-.025em;text-wrap:balance}
 code{font-family:var(--mono);background:var(--surface2);border:1px solid var(--line);padding:.08em .4em;border-radius:6px;font-size:.86em}
 ::selection{background:var(--accent);color:var(--accent-ink)}
@@ -183,7 +183,7 @@ tbody tr{transition:background .2s}tbody tr:hover{background:var(--accent-soft)}
 .proj-main ul.l li::before{content:"";position:absolute;left:3px;top:.68em;width:6px;height:6px;border-radius:2px;background:var(--accent)}
 .proj-main p{color:var(--ink2)}
 pre{margin:0 0 1.2em;padding:18px 20px;background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);overflow-x:auto;font:.82rem/1.65 var(--mono);color:var(--ink2)}
-pre .cm{color:var(--faint)}
+pre .cm{color:var(--muted)}
 .metrics{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
 .metric{border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface);padding:16px 22px;min-width:150px}
 .metric b{display:block;font-size:2.2rem;line-height:1.1;letter-spacing:-.04em;font-weight:600;color:var(--accent)}
@@ -245,3 +245,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.card,.bx,.clink{transition:none}.btn:hover,a.card:hover,.clink:hover,.bx-link:hover{transform:none}}
 @media print{.topbar,.tools,footer,.btns,.filters,.progress{display:none}body{background:#fff;color:#000}body::before{display:none}.proj{display:block}}
+
+/* Accessibilité : titre lisible par les lecteurs d'écran uniquement, cibles tactiles confortables */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:860px){.tools button,.navtoggle{height:42px;min-width:42px}.brand{min-height:42px}nav.main a{padding:11px 12px}}
