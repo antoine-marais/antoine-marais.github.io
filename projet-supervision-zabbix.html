@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Zabbix and Grafana monitoring — Antoine Marais">Supervision Zabbix et Grafana — Antoine Marais</title>
+<meta name="description" content="Réorganisation de la supervision Zabbix et ajout de tableaux de bord Grafana, pour voir l'état de l'infrastructure d'un coup d'œil.">
+<link rel="canonical" href="https://antoine-marais.github.io/projet-supervision-zabbix.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Supervision Zabbix et Grafana — Antoine Marais">
+<meta property="og:description" content="Réorganisation de la supervision Zabbix et ajout de tableaux de bord Grafana, pour voir l'état de l'infrastructure d'un coup d'œil.">
+<meta property="og:image" content="https://antoine-marais.github.io/assets/img/og.jpg">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://antoine-marais.github.io/projet-supervision-zabbix.html">
+<meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0e14" media="(prefers-color-scheme: dark)">
+
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f172a'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='14' font-weight='bold' fill='white' text-anchor='middle'%3EAM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main" data-en="Skip to content">Aller au contenu</a>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html">antoine-marais</a>
+  <button class="navtoggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Menu">☰</button>
+  <nav class="main" id="navLinks" aria-label="Navigation"><a href="index.html"><span data-en="Home">Accueil</span></a><a href="profil.html"><span data-en="Profile">Profil</span></a><a href="competences.html"><span data-en="Skills">Compétences</span></a><a href="epreuves.html"><span data-en="Exams">Épreuves</span></a><a href="realisations.html" aria-current="page"><span data-en="Projects">Réalisations</span></a><a href="contact.html"><span>Contact</span></a></nav>
+  <div class="tools"><button id="langBtn" type="button" aria-label="Changer de langue / Switch language">EN</button><button id="themeBtn" type="button" aria-label="Thème clair/sombre">◐</button></div>
+</div></header>
+<main id="main">
+<div class="page-head"><div class="wrap"><div class="crumb"><a href="realisations.html"><span data-en="projects">réalisations</span></a> / supervision-zabbix</div>
+  <span class="badge" data-en="E5 · Company">E5 · Entreprise</span>
+  <h1 data-en="Monitoring overhaul (Zabbix and Grafana)">Refonte de la supervision (Zabbix et Grafana)</h1>
+  <p data-en="Monitoring already relied on Zabbix but lacked clarity: dashboards were hard to read and assessing the state of the infrastructure took time.">La supervision reposait déjà sur Zabbix, mais elle manquait de clarté : les tableaux de bord étaient peu lisibles et il était long d'évaluer l'état de l'infrastructure.</p>
+  
+</div></div>
+<div class="wrap proj">
+  <article class="proj-main"><h2 data-en="What I did">Ce que j'ai fait</h2><ul class="l"><li data-en="Rework of the Zabbix configuration: hosts, templates, triggers and thresholds.">Refonte de la configuration Zabbix : hôtes, modèles, déclencheurs et seuils.</li><li data-en="Deployment of Grafana, connected to Zabbix as its data source.">Déploiement de Grafana, connecté à Zabbix comme source de données.</li><li data-en="Creation of concise, prioritised dashboards.">Création de tableaux de bord synthétiques et hiérarchisés.</li><li data-en="Validation of the alerts and documentation of the new organisation.">Validation des alertes et documentation de la nouvelle organisation.</li></ul><h2 data-en="Result">Résultat</h2><p data-en="Monitoring is usable day to day: the team spots an incident faster and can react before it affects users.">La supervision est utilisable au quotidien : l'équipe repère plus vite un incident et peut réagir avant qu'il ne gêne les utilisateurs.</p><p class="note" data-en="Project carried out in a company: internal details (addresses, site names, rules) are deliberately not published.">Projet mené en entreprise : les détails internes (adresses, noms de sites, règles) ne sont volontairement pas publiés.</p></article>
+  <aside class="side">
+    <div class="box"><div class="lab"><span data-en="Project sheet">Fiche projet</span></div><div class="row"><span><span data-en="exam">épreuve</span></span><b><span data-en="E5 · Block 2">E5 · Bloc 2</span></b></div><div class="row"><span><span data-en="context">contexte</span></span><b><span data-en="Company · Dirickx, Groupe Picot">Entreprise · Dirickx, Groupe Picot</span></b></div><div class="row"><span><span data-en="tools">outils</span></span><b>Zabbix · Grafana</b></div></div>
+    <div class="box"><div class="lab">Technologies</div><div class="tags"><span class="tag">Zabbix</span><span class="tag">Grafana</span><span class="tag"><span data-en="Alerting">Alertes</span></span><span class="tag"><span data-en="Dashboards">Tableaux de bord</span></span></div></div>
+    <div class="box"><div class="lab"><span data-en="Skills covered — Block 2">Compétences couvertes — Bloc 2</span></div><ul><li><span data-en="Operate, troubleshoot and monitor">Exploiter, dépanner et superviser</span></li><li><span data-en="Install, test and deploy a solution">Installer, tester et déployer une solution</span></li></ul></div>
+    
+    <a class="btn ghost" href="realisations.html"><span data-en="← Back to projects">← Retour aux réalisations</span></a>
+  </aside>
+</div>
+</main>
+<footer><div class="wrap"><span>© <span id="year">2026</span> Antoine Marais — BTS SIO · SISR</span><span data-en="Static site · HTML / CSS / JS">Site statique · HTML / CSS / JS</span></div></footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

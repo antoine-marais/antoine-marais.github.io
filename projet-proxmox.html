@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title data-en="Recovering 12 lost virtual machines on Proxmox — Antoine Marais">Récupération de 12 VM disparues sur Proxmox — Antoine Marais</title>
+<title data-en="Recovering 12 Proxmox VMs — Antoine Marais">Récupération de 12 VM Proxmox — Antoine Marais</title>
 <meta name="description" content="Incident critique : 12 VM disparues après une réinstallation sur le mauvais disque — toutes récupérées, sans perte de données.">
 <link rel="canonical" href="https://antoine-marais.github.io/projet-proxmox.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Récupération de 12 VM disparues sur Proxmox — Antoine Marais">
+<meta property="og:title" content="Récupération de 12 VM Proxmox — Antoine Marais">
 <meta property="og:description" content="Incident critique : 12 VM disparues après une réinstallation sur le mauvais disque — toutes récupérées, sans perte de données.">
 <meta property="og:image" content="https://antoine-marais.github.io/assets/img/og.jpg">
 <meta property="og:locale" content="fr_FR">
@@ -32,7 +32,7 @@
 </div></header>
 <main id="main">
 <div class="page-head"><div class="wrap"><div class="crumb"><a href="realisations.html"><span data-en="projects">réalisations</span></a> / proxmox</div>
-  <span class="badge" data-en="E5 · Block 2">E5 · Bloc 2</span>
+  <span class="badge" data-en="E6 · School">E6 · École</span>
   <h1 data-en="Recovering 12 lost virtual machines on Proxmox">Récupération de 12 VM disparues sur Proxmox</h1>
   <p data-en="A critical-incident case study: 12 students' virtual machines vanished after a Proxmox reinstallation landed on the wrong disk. I recovered them all — with no data loss.">Une situation d'incident critique : 12 machines virtuelles d'étudiants disparues après une réinstallation de Proxmox sur le mauvais disque. Je les ai toutes récupérées — sans aucune perte de données.</p>
   <div class="metrics"><div class="metric"><b>12</b><span data-en="VMs recovered">VM récupérées</span></div><div class="metric"><b>0</b><span data-en="data loss">perte de données</span></div></div>
@@ -40,7 +40,7 @@
 <div class="wrap proj">
   <article class="proj-main"><h2 data-en="The incident">L'incident</h2><p data-en="After a Proxmox VE reinstallation was performed on the wrong disk, 12 student virtual machines seemed to have disappeared. Losing them would have meant losing weeks of student work — the pressure was real.">Après qu'une réinstallation de Proxmox VE a été réalisée sur le mauvais disque, 12 machines virtuelles d'étudiants semblaient avoir disparu. Les perdre signifiait perdre des semaines de travail — la pression était réelle.</p><h2 data-en="Diagnosis">Diagnostic</h2><ul class="l"><li data-en-html="Inspected the disks with <code>lsblk</code> and found the original data still present on a separate disk.">Inspection des disques avec <code>lsblk</code> : les données d'origine étaient toujours présentes sur un disque distinct.</li><li data-en-html="Located the old LVM volume group (<code>pve-OLD-...</code>) that still held the virtual disks.">Localisation de l'ancien groupe LVM (<code>pve-OLD-...</code>) qui contenait encore les disques virtuels.</li><li data-en-html="Read the Proxmox SQLite configuration database (<code>config.db</code>) to recover the VM definitions.">Lecture de la base de configuration SQLite de Proxmox (<code>config.db</code>) pour retrouver les définitions des VM.</li></ul><h2 data-en="Recovery">Remise en service</h2><ul class="l"><li data-en-html="Re-injected each VM's <code>.conf</code> files and re-created the storage pools pointing to the recovered LVM group.">Réinjection des fichiers <code>.conf</code> de chaque VM et recréation des pools de stockage pointant vers le groupe LVM récupéré.</li><li data-en-html="Rebuilt the network with the right bridges (<code>vmbr1/2/3</code>), using <code>ethtool -p</code> to physically identify the interfaces.">Reconstruction du réseau avec les bons bridges (<code>vmbr1/2/3</code>), en identifiant physiquement les interfaces avec <code>ethtool -p</code>.</li><li data-en="Verified every VM boots and reaches the network — all 12 back online.">Vérification du démarrage et de l'accès réseau de chaque VM — les 12 de nouveau en ligne.</li></ul></article>
   <aside class="side">
-    <div class="box"><div class="lab"><span data-en="Project sheet">Fiche projet</span></div><div class="row"><span><span data-en="framework">référentiel</span></span><b><span data-en="E5 · Block 2">E5 · Bloc 2</span></b></div><div class="row"><span><span>type</span></span><b><span data-en="Critical incident">Incident critique</span></b></div><div class="row"><span><span data-en="result">résultat</span></span><b><span data-en="12/12 recovered">12/12 récupérées</span></b></div></div>
+    <div class="box"><div class="lab"><span data-en="Project sheet">Fiche projet</span></div><div class="row"><span><span data-en="exam">épreuve</span></span><b><span data-en="E6 · Block 2">E6 · Bloc 2</span></b></div><div class="row"><span><span>type</span></span><b><span data-en="Critical incident">Incident critique</span></b></div><div class="row"><span><span data-en="result">résultat</span></span><b><span data-en="12/12 recovered">12/12 récupérées</span></b></div></div>
     <div class="box"><div class="lab">Technologies</div><div class="tags"><span class="tag">Proxmox VE</span><span class="tag">LVM</span><span class="tag">lsblk</span><span class="tag">SQLite</span><span class="tag">Linux bridges</span><span class="tag">ethtool</span></div></div>
     <div class="box"><div class="lab"><span data-en="Skills covered — Block 2">Compétences couvertes — Bloc 2</span></div><ul><li><span data-en="Operate, troubleshoot and supervise an infrastructure">Exploiter, dépanner et superviser une infrastructure</span></li><li><span data-en="Ensure service continuity">Assurer la continuité de service</span></li><li><span data-en="Manage virtualisation">Gérer la virtualisation</span></li></ul></div>
     

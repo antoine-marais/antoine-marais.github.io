@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="MDT and Intune deployment — Antoine Marais">Déploiement MDT et Intune — Antoine Marais</title>
+<meta name="description" content="Industrialisation de la préparation des postes : image de référence et séquence de tâches MDT, démarrage par le réseau, puis gestion par Microsoft Intune.">
+<link rel="canonical" href="https://antoine-marais.github.io/projet-mdt-intune.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Déploiement MDT et Intune — Antoine Marais">
+<meta property="og:description" content="Industrialisation de la préparation des postes : image de référence et séquence de tâches MDT, démarrage par le réseau, puis gestion par Microsoft Intune.">
+<meta property="og:image" content="https://antoine-marais.github.io/assets/img/og.jpg">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://antoine-marais.github.io/projet-mdt-intune.html">
+<meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0e14" media="(prefers-color-scheme: dark)">
+
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f172a'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='14' font-weight='bold' fill='white' text-anchor='middle'%3EAM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main" data-en="Skip to content">Aller au contenu</a>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html">antoine-marais</a>
+  <button class="navtoggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Menu">☰</button>
+  <nav class="main" id="navLinks" aria-label="Navigation"><a href="index.html"><span data-en="Home">Accueil</span></a><a href="profil.html"><span data-en="Profile">Profil</span></a><a href="competences.html"><span data-en="Skills">Compétences</span></a><a href="epreuves.html"><span data-en="Exams">Épreuves</span></a><a href="realisations.html" aria-current="page"><span data-en="Projects">Réalisations</span></a><a href="contact.html"><span>Contact</span></a></nav>
+  <div class="tools"><button id="langBtn" type="button" aria-label="Changer de langue / Switch language">EN</button><button id="themeBtn" type="button" aria-label="Thème clair/sombre">◐</button></div>
+</div></header>
+<main id="main">
+<div class="page-head"><div class="wrap"><div class="crumb"><a href="realisations.html"><span data-en="projects">réalisations</span></a> / mdt-intune</div>
+  <span class="badge" data-en="E5 · Company">E5 · Entreprise</span>
+  <h1 data-en="Automated workstation deployment (MDT and Intune)">Déploiement automatisé des postes (MDT et Intune)</h1>
+  <p data-en="Workstations used to be prepared by hand. The goal was to make it fast, identical from one machine to the next and reliable, combining on-premises MDT with cloud-based Intune.">La préparation des postes se faisait à la main. L'objectif était de la rendre rapide, identique d'un poste à l'autre et fiable, en combinant MDT sur site et Intune dans le cloud.</p>
+  
+</div></div>
+<div class="wrap proj">
+  <article class="proj-main"><h2 data-en="Context">Contexte</h2><p data-en="Every new workstation was installed and configured manually. Deployment had to be industrialised to gain speed and consistency.">Chaque nouveau poste était installé et configuré manuellement. Il fallait industrialiser le déploiement pour gagner en rapidité et en homogénéité.</p><h2 data-en="What I did">Ce que j'ai fait</h2><ul class="l"><li data-en="Preparation of a reference image and of the MDT task sequence.">Préparation d'une image de référence et de la séquence de tâches MDT.</li><li data-en="Applications included in the deployment: the Microsoft baseline, the software specific to each department and the Fortinet VPN client.">Applications intégrées au déploiement : la base Microsoft, les logiciels propres aux services et le client VPN Fortinet.</li><li data-en="Network boot: the laptop is plugged into a docking station connected to the network, then MDT is started from the network card, from the BIOS.">Démarrage par le réseau : le portable est branché sur une station d'accueil reliée au réseau, puis on lance MDT depuis la carte réseau, à partir du BIOS.</li><li data-en="Workstation management with Microsoft Intune: profiles, security policies and device enrolment.">Gestion des postes avec Microsoft Intune : profils, stratégies de sécurité et inscription des postes.</li><li data-en="Documentation of the procedure for the support team.">Documentation de la procédure pour l'équipe support.</li></ul><h2 data-en="Result">Résultat</h2><p data-en="Workstation deployment is reproducible. It combines an on-premises tool (MDT) with cloud management (Intune).">Le déploiement des postes est reproductible. Il combine un outil sur site (MDT) et une gestion dans le cloud (Intune).</p><p class="note" data-en="Project carried out in a company: internal details (addresses, site names, rules) are deliberately not published.">Projet mené en entreprise : les détails internes (adresses, noms de sites, règles) ne sont volontairement pas publiés.</p></article>
+  <aside class="side">
+    <div class="box"><div class="lab"><span data-en="Project sheet">Fiche projet</span></div><div class="row"><span><span data-en="exam">épreuve</span></span><b><span data-en="E5 · Block 2">E5 · Bloc 2</span></b></div><div class="row"><span><span data-en="context">contexte</span></span><b><span data-en="Company · Dirickx, Groupe Picot">Entreprise · Dirickx, Groupe Picot</span></b></div><div class="row"><span><span data-en="tools">outils</span></span><b>MDT · Intune</b></div></div>
+    <div class="box"><div class="lab">Technologies</div><div class="tags"><span class="tag">MDT</span><span class="tag">Microsoft Intune</span><span class="tag"><span data-en="Network boot (PXE)">Démarrage réseau (PXE)</span></span><span class="tag">Windows</span><span class="tag"><span data-en="Fortinet VPN client">Client VPN Fortinet</span></span></div></div>
+    <div class="box"><div class="lab"><span data-en="Skills covered — Blocks 1 and 2">Compétences couvertes — Blocs 1 et 2</span></div><ul><li><span data-en="Install, test and deploy a solution">Installer, tester et déployer une solution</span></li><li><span data-en="Administer on site and remotely">Administrer sur site et à distance</span></li><li><span data-en="Provide users with an IT service">Mettre à disposition des utilisateurs un service informatique</span></li></ul></div>
+    
+    <a class="btn ghost" href="realisations.html"><span data-en="← Back to projects">← Retour aux réalisations</span></a>
+  </aside>
+</div>
+</main>
+<footer><div class="wrap"><span>© <span id="year">2026</span> Antoine Marais — BTS SIO · SISR</span><span data-en="Static site · HTML / CSS / JS">Site statique · HTML / CSS / JS</span></div></footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
